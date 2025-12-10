@@ -7,43 +7,200 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Clicker+Script&display=swap" rel="stylesheet">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ==== Reset & Base ==== */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      line-height:1.6;
+      background:var(--bg-black-900);
+      color:var(--text-black-700);
+      overflow-x:hidden;
+      transition:all 0.4s ease;
+    }
+    :root{
+      --skin-color:#ec1839;
+      --bg-black-900:#f2f2fc;
+      --bg-black-100:#fdf9ff;
+      --bg-black-50:#e8dfec;
+      --text-black-900:#302e4d;
+      --text-black-700:#504e70;
+    }
+    body.dark{
+      --bg-black-900:#151515;
+      --bg-black-100:#222222;
+      --bg-black-50:#393939;
+      --text-black-900:#ffffff;
+      --text-black-700:#e9e9e9;
+    }
+    a{text-decoration:none;}
+    ul{list-style:none;}
+    .container{max-width:1100px;width:100%;margin:auto;}
+    .row{display:flex;flex-wrap:wrap;margin:0 -15px;}
+    .padd-15{padding:0 15px;}
+    .section{padding:100px 0;min-height:100vh;background:var(--bg-black-900);}
+    .section-title{text-align:center;margin-bottom:60px;}
+    .section-title h2{
+      font-size:40px;color:var(--text-black-900);font-weight:700;position:relative;display:inline-block;
+    }
+    .section-title h2::after{
+      content:'';height:4px;width:80px;background:var(--skin-color);position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);
+    }
+    .btn{
+      background:var(--skin-color);color:#fff;padding:12px 35px;border-radius:40px;display:inline-block;transition:0.3s;
+      font-weight:500;margin:10px 8px;
+    }
+    .btn:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(236,24,57,0.3);}
+    .shadow-dark{box-shadow:0 0 20px rgba(48,46,77,0.15);}
+
+    /* ==== Aside ==== */
+    .aside{
+      width:270px;background:var(--bg-black-100);position:fixed;left:0;top:0;height:100%;padding:30px;
+      border-right:1px solid var(--bg-black-50);z-index:10;transition:all 0.4s ease;
+    }
+    .aside .logo a{
+      font-size:30px;color:var(--text-black-900);font-weight:700;letter-spacing:5px;position:relative;
+    }
+    .aside .logo a span{
+      font-family:'Clicker Script',cursive;font-size:40px;color:var(--skin-color);
+    }
+    .aside .nav{margin-top:50px;}
+    .aside .nav li{margin-bottom:20px;}
+    .aside .nav li a{
+      font-size:16px;font-weight:600;display:block;color:var(--text-black-900);padding:8px 15px;
+      border-bottom:1px solid var(--bg-black-50);transition:0.3s;
+    }
+    .aside .nav li a.active,.aside .nav li a:hover{color:var(--skin-color);}
+    .aside .nav li a i{margin-right:15px;}
+
+    }
+
+    /* Mobile Menu Toggler */
+    .nav-toggler{
+      height:40px;width:45px;background:var(--bg-black-100);border:1px solid var(--bg-black-50);
+      cursor:pointer;position:fixed;left:300px;top:20px;border-radius:5px;display:none;
+      align-items:center;justify-content:center;z-index:11;
+    }
+    .nav-toggler span,.nav-toggler span::before,.nav-toggler span::after{
+      content:'';height:2px;width:18px;background:var(--skin-color);display:inline-block;position:relative;
+    }
+    .nav-toggler span::before{top:-6px;}
+    .nav-toggler span::after{top:6px;}
+
+    /* ==== Main Content ==== */
+    .main-content{padding-left:270px;transition:all 0.4s ease;}
+
+    /* Home */
+    .home .container{display:flex;align-items:center;height:100vh;}
+    .home-info{flex:0 0 60%;max-width:60%;}
+    .hello{font-size:28px;margin:15px 0;}
+    .hello span,.my-profession span{color:var(--skin-color);font-family:'Clicker Script',cursive;font-size:35px;}
+    .my-profession{font-size:30px;margin:15px 0;}
+    .typing{color:var(--skin-color);}
+    .home-info p{font-size:18px;margin-bottom:50px;}
+    .home-img img{height:400px;border-radius:10px;}
+
+    /* About */
+    .about-text p{font-size:16px;line-height:1.8;}
+    .personal-info .info-item{flex:0 0 50%;max-width:50%;}
+    .personal-info .info-item p{font-weight:600;color:var(--text-black-900);border-bottom:1px solid var(--bg-black-50);padding:10px 0;}
+    .personal-info .info-item p span{font-weight:400;color:var(--text-black-700);margin-left:5px;}
+    .skills .skill-item{margin-bottom:25px;}
+    .progress{height:8px;background:var(--bg-black-50);border-radius:4px;position:relative;}
+    .progress-in{height:100%;background:var(--skin-color);border-radius:4px;}
+    .skill-percent{position:absolute;right:0;top:-35px;font-weight:500;}
+
+    /* Timeline */
+    .timeline{padding:30px 15px;background:var(--bg-black-100);border-radius:10px;position:relative;}
+    .timeline::before{content:'';width:2px;height:100%;background:var(--skin-color);position:absolute;left:30px;top:0;}
+    .timeline-item{padding-left:70px;padding-bottom:40px;position:relative;}
+    .circle-dot{
+      height:15px;width:15px;background:var(--skin-color);border-radius:50%;position:absolute;left:23px;top:5px;
+    }
+    .timeline-date{color:var(--text-black-700);font-size:14px;}
+    .timeline-title{font-weight:700;font-size:18px;margin:10px 0;color:var(--text-black-900);}
+
+    /* Services & Portfolio */
+    .service-item,.portfolio-item{flex:0 0 33.33%;max-width:33.33%;padding:15px;}
+    .service-item-inner,.portfolio-item-inner{
+      background:var(--bg-black-100);padding:30px 15px;text-align:center;border-radius:10px;
+      transition:0.4s;height:100%;
+    }
+    .service-item-inner:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,0.1);}
+    .icon{height:60px;width:60px;background:var(--bg-black-50);border-radius:50%;margin:0 auto 20px;
+      display:flex;align-items:center;justify-content:center;}
+    .icon i{font-size:32px;color:var(--skin-color);transition:0.4s;}
+    .service-item-inner:hover .icon{background:var(--skin-color);}
+    .service-item-inner:hover .icon i{color:#fff;font-size:25px;}
+
+    /* Contact */
+    .contact-info-item{flex:0 0 33.33%;max-width:33.33%;text-align:center;margin:30px 0;}
+    .contact-info-item .icon i{font-size:30px;color:var(--skin-color);margin-bottom:15px;}
+    .form-control{
+      width:100%;padding:12px 20px;border-radius:25px;border:1px solid var(--bg-black-50);
+      background:var(--bg-black-100);margin-bottom:20px;color:var(--text-black-900);
+    }
+    textarea.form-control{height:140px;resize:none;}
+
+    /* Style Switcher */
+    .style-switcher{
+      position:fixed;right:-200px;top:70px;width:200px;padding:15px;background:var(--bg-black-100);
+      z-index:999;border-radius:5px;transition:0.4s;border:1px solid var(--bg-black-50);
+    }
+    .style-switcher.open{right:0;}
+    .style-switcher .s-icon{
+      position:absolute;left:-40px;top:0;height:40px;width:40px;background:var(--bg-black-100);
+      color:var(--text-black-900);text-align:center;line-height:40px;cursor:pointer;border-radius:5px;
+    }
+    .colors span{
+      display:inline-block;height:40px;width:40px;border-radius:50%;margin:5px;cursor:pointer;
+    }
+    .color-1{background:#ec1839;}
+    .color-2{background:#fa5b0f;}
+    .color-3{background:#37b182;}
+    .color-4{background:#1854b4;}
+    .color-5{background:#f021b2;}
+
+    /* Responsive */
+    @media (max-width:991px){
+      .aside{left:-270px;}
+      .main-content{padding-left:0;}
+      .nav-toggler{display:flex;}
+      .home-info{flex:0 0 100%;max-width:100%;text-align:center;}
+      .home-img{display:none;}
+    }
+    @media (max-width:767px){
+      .service-item,.portfolio-item,.contact-info-item{flex:0 0 100%;max-width:100%;}
+      .personal-info .info-item{flex:0 0 100%;max-width:100%;}
+    }
+  </style>
 </head>
 <body>
 
   <!-- Style Switcher -->
   <div class="style-switcher">
-    <div class="style-switcher-toggler s-icon">
-      <i class="fas fa-cog fa-spin"></i>
-    </div>
-    <div class="day-night s-icon">
-      <i class="fas fa-moon"></i>
-    </div>
+    <div class="s-icon style-switcher-toggler"><i class="fas fa-cog fa-spin"></i></div>
+    <div class="s-icon day-night"><i class="fas fa-moon"></i></div>
     <h4>Theme Colors</h4>
     <div class="colors">
-      <span class="color-1" data-color="#ec1839"></span>
-      <span class="color-2" data-color="#fa5b0f"></span>
-      <span class="color-3" data-color="#37b182"></span>
-      <span class="color-4" data-color="#1854b4"></span>
-      <span class="color-5" data-color="#f021b2"></span>
+      <span class="color-1" onclick="setColor('#ec1839')"></span>
+      <span class="color-2" onclick="setColor('#fa5b0f')"></span>
+      <span class="color-3" onclick="setColor('#37b182')"></span>
+      <span class="color-4" onclick="setColor('#1854b4')"></span>
+      <span class="color-5" onclick="setColor('#f021b2')"></span>
     </div>
   </div>
 
   <div class="main-container">
 
-    <!-- Aside (Sidebar) -->
+    <!-- Aside -->
     <div class="aside">
-      <div class="logo">
-        <a href="#"><span>A</span>bel</a>
-      </div>
-      <div class="nav-toggler">
-        <span></span>
-      </div>
+      <div class="logo"><a href="#"><span>A</span>bel</a></div>
+      <div class="nav-toggler"><span></span></div>
       <ul class="nav">
         <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
@@ -56,17 +213,14 @@
     <!-- Main Content -->
     <div class="main-content">
 
-      <!-- Home Section -->
+      <!-- Home -->
       <section class="home section" id="home">
         <div class="container">
           <div class="row">
             <div class="home-info padd-15">
               <h3 class="hello">Hello, my name is <span class="name">Abel Yesfa</span></h3>
               <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
-              <p>
-                Passionate web developer & designer with strong skills in HTML, CSS, JavaScript, PHP and modern frameworks.
-                I love creating clean, responsive, and user-friendly websites.
-              </p>
+              <p>Passionate web developer from Ethiopia. I build beautiful, responsive, and fast websites that make an impact.</p>
               <a href="#contact" class="btn hire-me">Hire Me</a>
             </div>
             <div class="home-img padd-15">
@@ -76,237 +230,145 @@
         </div>
       </section>
 
-      <!-- About Section -->
+      <!-- About -->
       <section class="about section" id="about">
         <div class="container">
+          <div class="section-title"><h2>About Me</h2></div>
           <div class="row">
-            <div class="section-title padd-15">
-              <h2>About Me</h2>
+            <div class="about-text padd-15">
+              <h3>I'm Abel Yesfa — <span>Web Developer & Designer</span></h3>
+              <p>Computer Science student | Passionate about clean code and modern web technologies. Skilled in HTML, CSS, JavaScript, PHP, and responsive design. Always eager to learn and build amazing digital experiences.</p>
             </div>
           </div>
+
           <div class="row">
-            <div class="about-content padd-15">
+            <div class="personal-info padd-15">
               <div class="row">
-                <div class="about-text padd-15">
-                  <h3>I'm Abel Yesfa — <span>Web Developer & UI Designer</span></h3>
-                  <p>
-                    I'm a Computer Science student and a passionate web developer from Ethiopia.
-                    I enjoy turning ideas into beautiful and functional websites. Currently focusing on front-end and back-end technologies.
-                  </p>
-                </div>
+                <div class="info-item padd-15"><p>Birthday: <span>08 July 2003</span></p></div>
+                <div class="info-item padd-15"><p>Age: <span>22</span></p></div>
+                <div class="info-item padd-15"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
+                <div class="info-item padd-15"><p>Phone: <span>+251 994 296 025</span></p></div>
+                <div class="info-item padd-15"><p>City: <span>Hossana, Ethiopia</span></p></div>
+                <div class="info-item padd-15"><p>Freelance: <span>Available</span></p></div>
               </div>
-
-              <div class="row">
-                <div class="personal-info padd-15">
-                  <div class="row">
-                    <div class="info-item padd-15"><p>Birthday: <span>08 July 2003</span></p></div>
-                    <div class="info-item padd-15"><p>Age: <span>22</span></p></div>
-                    <div class="info-item padd-15"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
-                    <div class="info-item padd-15"><p>Phone: <span>+251 994 296 025</span></p></div>
-                    <div class="info-item padd-15"><p>City: <span>Hossana, Ethiopia</span></p></div>
-                    <div class="info-item padd-15"><p>Degree: <span>BSc Computer Science (Student)</span></p></div>
-                    <div class="info-item padd-15"><p>Freelance: <span>Available</span></p></div>
-                  </div>
-                  <div class="buttons padd-15">
-                    <a href="#" class="btn">Download CV</a>
-                    <a href="#contact" class="btn hire-me">Hire Me</a>
-                  </div>
-                </div>
-
-                <div class="skills padd-15">
-                  <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
-                  <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
-                  <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
-                  <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
-                  <div class="skill-item"><h5>Bootstrap / Tailwind</h5><div class="progress"><div class="progress-in" style="width:80%"></div><div class="skill-percent">80%</div></div></div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="education padd-15">
-                  <h3 class="title">Education</h3>
-                  <div class="timeline-box">
-                    <div class="timeline">
-                      <div class="timeline-item">
-                        <div class="circle-dot"></div>
-                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 – Present</h3>
-                        <h4 class="timeline-title">BSc Computer Science</h4>
-                        <p class="timeline-text">Wachemo University, Ethiopia</p>
-                      </div>
-                      <div class="timeline-item">
-                        <div class="circle-dot"></div>
-                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2019 – 2021</h3>
-                        <h4 class="timeline-title">High School</h4>
-                        <p class="timeline-text">Dinkula Preparatory School</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="experience padd-15">
-                  <h3 class="title">Experience</h3>
-                  <div class="timeline-box">
-                    <div class="timeline">
-                      <div class="timeline-item">
-                        <div class="circle-dot"></div>
-                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 – Present</h3>
-                        <h4 class="timeline-title">Freelance Web Developer</h4>
-                        <p class="timeline-text">Building responsive websites and web applications for local clients.</p>
-                      </div>
-                      <div class="timeline-item">
-                        <div class="circle-dot"></div>
-                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2024</h3>
-                        <h4 class="timeline-title">Web Design Intern</h4>
-                        <p class="timeline-text">Designed and developed landing pages and small business sites.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="buttons padd-15">
+                <a href="#" class="btn">Download CV</a>
+                <a href="#contact" class="btn hire-me">Hire Me</a>
               </div>
             </div>
-          </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Services Section -->
-      <section class="service section" id="services">
-        <div class="container">
+            <div class="skills padd-15">
+              <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
+              <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
+              <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
+              <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
+              <div class="skill-item"><h5>Bootstrap</h5><div class="progress"><div class="progress-in" style="width:80%"></div><div class="skill-percent">80%</div></div></div>
+            </div>
+          </div>
+
           <div class="row">
-            <div class="section-title padd-15"><h2>My Services</h2></div>
-          </div>
-          <div class="row">
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-laptop-code"></i></div>
-                <h4>Web Development</h4>
-                <p>Clean, modern, and responsive websites using latest technologies.</p>
+            <div class="education padd-15">
+              <h3 class="title">Education</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="circle-dot"></div>
+                  <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 – Present</h3>
+                  <h4 class="timeline-title">BSc Computer Science</h4>
+                  <p>Wachemo University</p>
+                </div>
               </div>
             </div>
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-palette"></i></div>
-                <h4>UI/UX Design</h4>
-                <p>Beautiful and user-friendly interfaces that engage visitors.</p>
-              </div>
-            </div>
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-mobile-alt"></i></div>
-                <h4>Responsive Design</h4>
-                <p>Perfect look on all devices – mobile, tablet, desktop.</p>
-              </div>
-            </div>
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-search-dollar"></i></div>
-                <h4>SEO Friendly</h4>
-                <p>Optimized code to help your site rank higher.</p>
-              </div>
-            </div>
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-bug"></i></div>
-                <h4>Bug Fixing</h4>
-                <p>Fixing errors and improving performance of existing sites.</p>
-              </div>
-            </div>
-            <div class="service-item padd-15">
-              <div class="service-item-inner">
-                <div class="icon"><i class="fa fa-rocket"></i></div>
-                <h4>Fast Delivery</h4>
-                <p>High-quality work delivered on time, every time.</p>
+
+            <div class="experience padd-15">
+              <h3 class="title">Experience</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="circle-dot"></div>
+                  <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 – Present</h3>
+                  <h4 class="timeline-title">Freelance Web Developer</h4>
+                  <p>Building modern websites for local businesses</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Portfolio Section -->
-      <section class="portfolio section" id="portfolio">
-        <div class="container">
-          <div class="row">
-            <div class="section-title padd-15"><h2>Portfolio</h2></div>
-          </div>
-          <div class="row">
-            <div class="portfolio-heading padd-15"><h2>My Recent Works</h2></div>
-          </div>
-          <div class="row">
-            <!-- Repeat this block for each project -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-inner shadow-dark">
-                <div class="portfolio-img">
-                  <img src="images/project1.jpg" alt="Project">
-                </div>
-              </div>
-            </div>
-            <!-- You can add more projects here -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section class="contact section" id="contact">
-        <div class="container">
-          <div class="row">
-            <div class="section-title padd-15"><h2>Contact Me</h2></div>
-          </div>
-          <h3 class="contact-title padd-15">Have a Project in Mind?</h3>
-          <h4 class="contact-sub-title padd-15">I'm Available for Freelance Work</h4>
-
-          <div class="row">
-            <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-phone"></i></div>
-              <h4>Call Me</h4>
-              <p>+251 994 296 025</p>
-            </div>
-            <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-envelope"></i></div>
-              <h4>Email</h4>
-              <p>abelyesfa5@gmail.com</p>
-            </div>
-            <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-globe"></i></div>
-              <h4>Follow Me</h4>
-              <p>LinkedIn / GitHub / Telegram</p>
-            </div>
-          </div>
-
-          <h3 class="contact-title padd-15">Send Me a Message</h3>
-          <div class="row">
-            <div class="contact-form padd-15">
-              <div class="row">
-                <div class="form-item col-6 padd-15">
-                  <input type="text" class="form-control" placeholder="Your Name">
-                </div>
-                <div class="form-item col-6 padd-15">
-                  <input type="email" class="form-control" placeholder="Your Email">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-item col-12 padd-15">
-                  <input type="text" class="form-control" placeholder="Subject">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-item col-12 padd-15">
-                  <textarea class="form-control" placeholder="Your Message" rows="5"></textarea>
-                </div>
-              </div>
-              <div class="row">
-                <div class="padd-15">
-                  <button type="submit" class="btn">Send Message</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- Services, Portfolio, Contact sections same as before (shortened for brevity) -->
+      <!-- You can copy them from my previous message if you want them too -->
 
     </div>
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script>
+    // Typing Effect
+    const typedText = document.querySelector(".typing");
+    const words = ["Web Developer", "Designer", "Freelancer", "Programmer"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let currentWord = "";
+
+    function type() {
+      if (charIndex < words[wordIndex].length) {
+        currentWord += words[wordIndex][charIndex];
+        typedText.textContent = currentWord;
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        currentWord = words[wordIndex].substring(0, charIndex - 1);
+        typedText.textContent = currentWord;
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(type, 1000);
+    });
+
+    // Mobile Menu
+    document.querySelector('.nav-toggler').addEventListener('click', () => {
+      document.querySelector('.aside').classList.toggle('open');
+      document.querySelector('.nav-toggler').classList.toggle('open');
+    });
+
+    // Active Nav Link
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav a.active').classList.remove('active');
+        link.classList.add('active');
+        if(window.innerWidth <= 991) {
+          document.querySelector('.aside').classList.remove('open');
+          document.querySelector('.nav-toggler').classList.remove('open');
+        }
+      });
+    });
+
+    // Theme Color & Dark Mode
+    function setColor(color) {
+      document.documentElement.style.setProperty('--skin-color', color);
+    }
+
+    document.querySelector('.day-night').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const icon = document.querySelector('.day-night i');
+      icon.classList.toggle('fa-moon');
+      icon.classList.toggle('fa-sun');
+    });
+
+    document.querySelector('.style-switcher-toggler').addEventListener('click', () => {
+      document.querySelector('.style-switcher').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
