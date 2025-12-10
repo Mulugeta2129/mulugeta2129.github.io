@@ -22,9 +22,9 @@
     }
     body.dark{
       --bg-black-900: #151515;
-      --bg-black-100: #222;
+      --bg-black-100: #222222;
       --bg-black-50: #393939;
-      --text-black-900: #fff;
+      --text-black-900: #ffffff;
       --text-black-700: #e0e0e0;
     }
     body{
@@ -32,32 +32,31 @@
       background:var(--bg-black-900);
       color:var(--text-black-700);
       line-height:1.7;
-      transition:0.4s;
+      transition: all 0.4s ease;
     }
+    a{text-decoration:none;}
     .container{max-width:1100px;margin:auto;padding:0 20px;}
-    .row{display:flex;flex-wrap:wrap;margin:0 -15px;}
-    .padd-15{padding:0 15px;}
     .section{padding:100px 0;position:relative;}
     .section-title{
-      text-align:center;margin-bottom:70px;position:relative;
+      text-align:center;margin-bottom:70px;
     }
     .section-title h2{
       font-size:42px;color:var(--text-black-900);font-weight:700;
-      display:inline-block;padding-bottom:15px;
+      display:inline-block;padding-bottom:15px;position:relative;
     }
     .section-title h2::after{
       content:'';height:5px;width:100px;background:var(--skin-color);
       position:absolute;bottom:0;left:50%;transform:translateX(-50%);border-radius:5px;
     }
 
-    /* ===== COLORED SECTION HEADERS ===== */
+    /* Section Color Accents */
     #home .section-title h2::after{background:#e74c3c;}
     #about .section-title h2::after{background:#3498db;}
     #services .section-title h2::after{background:#2ecc71;}
     #portfolio .section-title h2::after{background:#9b59b6;}
     #contact .section-title h2::after{background:#f39c12;}
 
-    /* ===== CARD WITH COLOR ACCENT ===== */
+    /* Card Style */
     .card{
       background:var(--bg-black-100);
       border-radius:16px;
@@ -66,113 +65,192 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.1);
       border-left:5px solid var(--skin-color);
       transition:0.4s;
-      overflow:hidden;
     }
     .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.15);}
 
-    /* Color borders per section */
-    #home .card{border-left-color:#e74c3c;}
-    #about .card{border-left-color:#3498db;}
-    #services .card{border-left-color:#2ecc71;}
-    #portfolio .card{border-left-color:#9b59b6;}
-    #contact .card{border-left-color:#f39c12;}
-
-    /* ===== SIDEBAR ===== */
-    .aside{
-      width:270px;background:var(--bg-black-100);position:fixed;left:0;top:0;height:100%;
-      padding:30px;border-right:1px solid var(--bg-black-50);z-index:10;transition:0.4s;
+    /* ===== TOP NAVBAR ===== */
+    .header{
+      position:fixed;
+      top:0;left:0;width:100%;
+      background:var(--bg-black-100);
+      padding:20px 0;
+      z-index:1000;
+      box-shadow:0 2px 20px rgba(0,0,0,0.1);
+      transition:0.4s;
     }
-    .aside .logo a{font-size:32px;color:var(--text-black-900);font-weight:700;}
-    .aside .logo span{font-family:'Clicker Script',cursive;font-size:42px;color:var(--skin-color);}
-    .aside .nav li a{
-      display:block;padding:15px;color:var(--text-black-900);font-weight:600;
-      border-bottom:1px solid var(--bg-black-50);transition:0.3s;
+    .header.scrolled{
+      padding:15px 0;
+      background:var(--bg-black-100);
+      backdrop-filter: blur(10px);
     }
-    .aside .nav li a.active,.aside .nav li a:hover{
-      color:var(--skin-color);padding-left:30px;background:rgba(231,76,60,0.1);border-radius:8px;
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
-    .nav-toggler{display:none;cursor:pointer;}
+    .logo a{
+      font-size:32px;
+      color:var(--text-black-900);
+      font-weight:700;
+    }
+    .logo span{
+      font-family:'Clicker Script',cursive;
+      font-size:42px;
+      color:var(--skin-color);
+    }
+    .nav-menu{
+      display:flex;
+      gap:30px;
+    }
+    .nav-menu a{
+      color:var(--text-black-900);
+      font-weight:600;
+      padding:8px 0;
+      position:relative;
+      transition:0.3s;
+    }
+    .nav-menu a::after{
+      content:'';position:absolute;bottom:0;left:0;width:0;height:3px;
+      background:var(--skin-color);transition:0.3s;
+    }
+    .nav-menu a:hover, .nav-menu a.active{
+      color:var(--skin-color);
+    }
+    .nav-menu a:hover::after, .nav-menu a.active::after{
+      width:100%;
+    }
+    .nav-toggler{
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+    }
+    .nav-toggler span{
+      width:30px;height:3px;background:var(--text-black-900);transition:0.3s;
+    }
 
-    .main-content{padding-left:270px;transition:0.4s;}
+    /* Mobile Menu */
+    @media (max-width: 991px){
+      .nav-menu{
+        position:fixed;
+        top:80px;left:-100%;width:100%;
+        height:100vh;background:var(--bg-black-100);
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        transition:0.4s;
+      }
+      .nav-menu.open{left:0;}
+      .nav-toggler{display:flex;}
+    }
 
-    /* ===== HOME ===== */
-    .home{display:flex;align-items:center;min-height:100vh;}
+    /* Main Content */
+    .main-content{padding-top:100px;}
+
+    /* Home Section */
+    .home{display:flex;align-items:center;min-height:100vh;justify-content:center;flex-wrap:wrap;}
+    .home-info{max-width:600px;}
     .hello{font-size:30px;margin:15px 0;}
-    .hello span,.my-profession span{color:var(--skin-color);font-family:'Clicker Script',cursive;font-size:40px;}
+    .hello span,.my-profession span{
+      color:var(--skin-color);
+      font-family:'Clicker Script',cursive;
+      font-size:40px;
+    }
     .my-profession{font-size:34px;margin:15px 0;}
-    .home p{font-size:18px;margin:30px 0 50px;max-width:500px;}
+    .home p{font-size:18px;margin:30px 0 50px;}
+    .btn{
+      display:inline-block;padding:12px 35px;
+      background:var(--skin-color);color:#fff;
+      border-radius:40px;font-weight:600;
+      transition:0.3s;
+    }
+    .btn:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(231,76,60,0.3);}
+    .btn.hire-me{background:transparent;border:2px solid var(--skin-color);color:var(--skin-color);}
+    .btn.hire-me:hover{background:var(--skin-color);color:#fff;}
+
     .home-img img{
-      width:380px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.2);
+      width:380px;border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.2);
+      margin:30px auto;display:block;
     }
 
-    /* ===== ABOUT & SKILLS ===== */
+    /* About, Skills, Services, etc. */
     .info-item p{
       flex:0 0 50%;max-width:50%;padding:10px 0;
       border-bottom:1px solid var(--bg-black-50);
     }
     .info-item p span{font-weight:400;color:var(--text-black-700);margin-left:8px;}
     .skill-item{margin:25px 0;}
-    .progress{height:10px;background:var(--bg-black-50);border-radius:10px;}
+    .progress{height:10px;background:var(--bg-black-50);border-radius:10px;position:relative;}
     .progress-in{height:100%;background:var(--skin-color);border-radius:10px;}
-    .skill-percent{position:absolute;right:0;top:-40px;font-weight:600;color:var(--skin-color);}
+    .skill-percent{
+      position:absolute;right:0;top:-40px;font-weight:600;
+      color:var(--skin-color);
+    }
 
-    /* ===== SERVICES & PORTFOLIO ===== */
-    .service-item,.portfolio-item{flex:0 0 33.33%;max-width:33.33%;padding:15px;}
-    .service-item .card,.portfolio-item .card{
-      text-align:center;height:100%;padding:40px 20px;
+    .service-item,.portfolio-item,.contact-info-item{
+      flex:0 0 33.33%;max-width:33.33%;padding:15px;
     }
     .icon{
-      width:80px;height:80px;background:var(--bg-black-50);border-radius:50%;
-      margin:0 auto 25px;display:flex;align-items:center;justify-content:center;
+      width:80px;height:80px;background:var(--bg-black-50);
+      border-radius:50%;margin:0 auto 25px;
+      display:flex;align-items:center;justify-content:center;transition:0.5s;
     }
     .icon i{font-size:38px;color:var(--skin-color);}
     .service-item:hover .icon,.portfolio-item:hover .icon{
       background:var(--skin-color);transform:rotate(360deg);
     }
-    .service-item:hover .icon i,.portfolio-item:hover .icon i{color:#fff;}
+    .service-item:hover .icon i{color:#fff;}
 
-    /* ===== CONTACT ===== */
-    .contact-info-item{flex:0 0 33.33%;text-align:center;margin:30px 0;}
-    .contact-info-item i{font-size:32px;color:var(--skin-color);margin-bottom:15px;}
     .form-control{
-      width:100%;padding:15px 25px;border-radius:30px;border:none;
-      background:var(--bg-black-100);margin:10px 0;box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      width:100%;padding:15px 25px;border-radius:30px;
+      border:none;background:var(--bg-black-100);
+      margin:10px 0;box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      font-family:'Poppins',sans-serif;
     }
-    textarea.form-control{height:150px;}
+    textarea.form-control{height:150px;resize:none;}
 
-    /* ===== FOOTER */
+    /* Footer */
     footer{
-      background:#1e1e1e;color:#aaa;padding:30px 0;text-align:center;margin-top:100px;
+      background:#1e1e1e;color:#aaa;padding:40px 0;text-align:center;
     }
     .social-links a{
-      display:inline-block;width:40px;height:40px;background:var(--skin-color);
-      color:#fff;line-height:40px;border-radius:50%;margin:0 8px;transition:0.3s;
+      display:inline-block;width:40px;height:40px;
+      background:var(--skin-color);color:#fff;
+      line-height:40px;border-radius:50%;margin:0 8px;
+      transition:0.3s;
     }
     .social-links a:hover{transform:translateY(-5px);}
 
-    /* ===== STYLE SWITCHER ===== */
+    /* Style Switcher */
     .style-switcher{
-      position:fixed;right:-220px;top:100px;width:220px;background:var(--bg-black-100);
-      padding:20px;border-radius:10px;z-index:999;transition:0.4s;box-shadow:0 0 30px rgba(0,0,0,0.2);
+      position:fixed;right:-220px;top:100px;width:220px;
+      background:var(--bg-black-100);padding:20px;
+      border-radius:10px;z-index:999;transition:0.4s;
+      box-shadow:0 0 30px rgba(0,0,0,0.2);
     }
     .style-switcher.open{right:0;}
     .style-switcher .s-icon{
-      position:absolute;left:-40px;width:40px;height:40px;background:var(--bg-black-100);
-      border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;
+      position:absolute;left:-40px;width:40px;height:40px;
+      background:var(--bg-black-100);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;border:2px solid var(--bg-black-50);
     }
-    .colors span{width:40px;height:40px;display:inline-block;border-radius:50%;margin:5px;cursor:pointer;}
+    .colors span{
+      width:40px;height:40px;display:inline-block;
+      border-radius:50%;margin:5px;cursor:pointer;
+    }
 
-    /* ===== RESPONSIVE ===== */
+    /* Responsive */
     @media (max-width:991px){
-      .aside{left:-270px;}
-      .main-content{padding-left:0;}
-      .nav-toggler{display:flex;position:fixed;left:20px;top:20px;z-index:11;}
-      .home-img img{display:none;}
       .home{text-align:center;}
+      .home-img img{width:300px;}
+      .service-item,.portfolio-item,.contact-info-item{
+        flex:0 0 100%;max-width:100%;
+      }
     }
     @media (max-width:767px){
-      .service-item,.portfolio-item,.contact-info-item{flex:0 0 100%;max-width:100%;}
-      .info-item{flex:0 0 100%;}
+      .info-item p{flex:0 0 100%;}
     }
   </style>
 </head>
@@ -184,205 +262,257 @@
     <div class="s-icon day-night"><i class="fas fa-moon"></i></div>
     <h4>Theme Colors</h4>
     <div class="colors">
-      <span onclick="setColor('#e74c3c')"></span>
-      <span onclick="setColor('#3498db')"></span>
-      <span onclick="setColor('#2ecc71')"></span>
-      <span onclick="setColor('#9b59b6')"></span>
-      <span onclick="setColor('#f39c12')"></span>
+      <span onclick="setColor('#e74c3c')" style="background:#e74c3c;"></span>
+      <span onclick="setColor('#3498db')" style="background:#3498db;"></span>
+      <span onclick="setColor('#2ecc71')" style="background:#2ecc71;"></span>
+      <span onclick="setColor('#9b59b6')" style="background:#9b59b6;"></span>
+      <span onclick="setColor('#f39c12')" style="background:#f39c12;"></span>
     </div>
   </div>
 
-  <div class="main-container">
-
-    <!-- Sidebar -->
-    <div class="aside">
+  <!-- Fixed Top Header -->
+  <header class="header" id="header">
+    <div class="container nav-container">
       <div class="logo"><a href="#"><span>A</span>bel</a></div>
-      <div class="nav-toggler"><span></span></div>
-      <ul class="nav">
-        <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-        <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
-        <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
-        <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
-      </ul>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-toggler" id="nav-toggler">
+        <span></span><span></span><span></span>
+      </div>
     </div>
+  </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
+  <!-- Main Content -->
+  <div class="main-content">
 
-      <!-- Home -->
-      <section class="home section" id="home">
-        <div class="container">
-          <div class="section-title"><h2>Home</h2></div>
-          <div class="row" style="align-items:center;">
-            <div class="padd-15" style="flex:0 0 60%;">
-              <div class="card">
-                <h3 class="hello">Hello, I'm <span>Abel Yesfa</span></h3>
-                <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
-                <p>Passionate full-stack web developer from Ethiopia. I turn ideas into beautiful, fast, and responsive websites.</p>
-                <a href="#contact" class="btn hire-me">Hire Me</a>
-              </div>
-            </div>
-            <div class="padd-15" style="flex:0 0 40%;text-align:center;">
-              <img src="images/Abels.jpg" alt="Abel Yesfa" style="border-radius:20px;max-width:100%;">
-            </div>
+    <!-- Home -->
+    <section class="home section" id="home">
+      <div class="container">
+        <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;gap:40px;justify-content:center;">
+          <div class="home-info">
+            <h3 class="hello">Hello, I'm <span>Abel Yesfa</span></h3>
+            <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
+            <p>Passionate full-stack web developer from Ethiopia. I turn ideas into beautiful, fast, and responsive websites.</p>
+            <a href="#contact" class="btn hire-me">Hire Me</a>
+          </div>
+          <div class="home-img">
+            <img src="images/Abels.jpg" alt="Abel Yesfa">
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- About -->
-      <section class="about section" id="about">
-        <div class="container">
-          <div class="section-title"><h2>About Me</h2></div>
-          <div class="row">
-            <div class="card padd-15">
-              <h3>I'm Abel Yesfa – <span>Web Developer & Designer</span></h3>
-              <p>Computer Science student | Love clean code & modern design | Building the future of the web one line at a time</p>
+    <!-- About -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-title"><h2>About Me</h2></div>
+        <div class="card" style="text-align:center;margin-bottom:40px;">
+          <h3>I'm Abel Yesfa – <span>Web Developer & Designer</span></h3>
+          <p>Computer Science student | Love clean code & modern design | Building the future of the web one line at a time</p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:30px;">
+          <div class="card" style="flex:1;min-width:300px;">
+            <div style="display:flex;flex-wrap:wrap;">
+              <div class="info-item"><p>Birthday: <span>08 July 2003</span></p></div>
+              <div class="info-item"><p>Age: <span>22</span></p></div>
+              <div class="info-item"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
+              <div class="info-item"><p>Phone: <span>+251 994 296 025</span></p></div>
+              <div class="info-item"><p>City: <span>Hossana, Ethiopia</span></p></div>
+              <div class="info-item"><p>Freelance: <span>Available</span></p></div>
+            </div>
+            <div style="text-align:center;margin-top:30px;">
+              <a href="#" class="btn">Download CV</a>
+              <a href="#contact" class="btn hire-me">Hire Me</a>
             </div>
           </div>
-          <div class="row">
-            <div class="card padd-15" style="flex:0 0 60%;">
-              <div class="row">
-                <div class="info-item padd-15"><p>Birthday: <span>08 July 2003</span></p></div>
-                <div class="info-item padd-15"><p>Age: <span>22</span></p></div>
-                <div class="info-item padd-15"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
-                <div class="info-item padd-15"><p>Phone: <span>+251 994 296 025</span></p></div>
-                <div class="info-item padd-15"><p>City: <span>Hossana, Ethiopia</span></p></div>
-                <div class="info-item padd-15"><p>Freelance: <span>Available</span></p></div>
-              </div>
-              <div style="text-align:center;margin-top:30px;">
-                <a href="#" class="btn">Download CV</a>
-                <a href="#contact" class="btn hire-me">Hire Me</a>
-              </div>
-            </div>
-            <div class="card padd-15" style="flex:0 0 40%;">
-              <h3 style="margin-bottom:25px;">Skills</h3>
-              <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
-              <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
-              <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
-              <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
-            </div>
+
+          <div class="card" style="flex:1;min-width:300px;">
+            <h3 style="margin-bottom:25px;">Skills</h3>
+            <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
+            <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
+            <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
+            <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Services -->
-      <section class="service section" id="services">
-        <div class="container">
-          <div class="section-title"><h2>Services</h2></div>
-          <div class="row">
-            <div class="service-item padd-15"><div class="card">
-              <div class="icon"><i class="fa fa-laptop-code"></i></div><h4>Web Development</h4><p>Modern, responsive websites</p>
-            </div></div>
-            <div class="service-item padd-15"><div class="card">
-              <div class="icon"><i class="fa fa-palette"></i></div><h4>UI/UX Design</h4><p>Beautiful user interfaces</p>
-            </div></div>
-            <div class="service-item padd-15"><div class="card">
-              <div class="icon"><i class="fa fa-mobile-alt"></i></div><h4>Responsive Design</h4><p>Perfect on all devices</p>
-            </div></div>
-          </div>
+    <!-- Services -->
+    <section class="service section" id="services">
+      <div class="container">
+        <div class="section-title"><h2>Services</h2></div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+          <div class="service-item"><div class="card" style="text-align:center;height:100%;">
+            <div class="icon"><i class="fa fa-laptop-code"></i></div>
+            <h4>Web Development</h4><p>Modern, responsive websites</p>
+          </div></div>
+          <div class="service-item"><div class="card" style="text-align:center;height:100%;">
+            <div class="icon"><i class="fa fa-palette"></i></div>
+            <h4>UI/UX Design</h4><p>Beautiful user interfaces</p>
+          </div></div>
+          <div class="service-item"><div class="card" style="text-align:center;height:100%;">
+            <div class="icon"><i class="fa fa-mobile-alt"></i></div>
+            <h4>Responsive Design</h4><p>Perfect on all devices</p>
+          </div></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Portfolio -->
-      <section class="portfolio section" id="portfolio">
-        <div class="container">
-          <div class="section-title"><h2>Portfolio</h2></div>
-          <div class="row">
-            <!-- Add your projects here -->
-            <div class="portfolio-item padd-15"><div class="card">
-              <img src="images/project1.jpg" alt="" style="width:100%;border-radius:12px;">
-              <h4 style="margin-top:15px;">Project Title</h4>
-            </div></div>
-            <!-- Repeat for more projects -->
-          </div>
+    <!-- Portfolio -->
+    <section class="portfolio section" id="portfolio">
+      <div class="container">
+        <div class="section-title"><h2>Portfolio</h2></div>
+        <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;">
+          <div class="portfolio-item"><div class="card">
+            <img src="images/project1.jpg" alt="Project" style="width:100%;border-radius:12px;">
+            <h4 style="margin-top:15px;text-align:center;">Project Title 1</h4>
+          </div></div>
+          <!-- Add more projects here -->
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact -->
-      <section class="contact section" id="contact">
-        <div class="container">
-          <div class="section-title"><h2>Contact Me</h2></div>
-          <div class="row">
-            <div class="contact-info-item padd-15"><div class="card">
-              <i class="fa fa-phone"></i><h4>Phone</h4><p>+251 994 296 025</p>
-            </div></div>
-            <div class="contact-info-item padd-15"><div class="card">
-              <i class="fa fa-envelope"></i><h4>Email</h4><p>abelyesfa5@gmail.com</p>
-            </div></div>
-            <div class="contact-info-item padd-15"><div class="card">
-              <i class="fa fa-map-marker-alt"></i><h4>Location</h4><p>Hossana, Ethiopia</p>
-            </div></div>
-          </div>
-          <form class="card" style="padding:40px;margin-top:40px;">
-            <input type="text" class="form-control" placeholder="Your Name"><br>
-            <input type="email" class="form-control" placeholder="Your Email"><br>
-            <textarea class="form-control" placeholder="Message" rows="5"></textarea><br>
-            <button class="btn" style="width:100%;">Send Message</button>
+    <!-- Contact -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-title"><h2>Contact Me</h2></div>
+        <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-bottom:50px;">
+          <div class="contact-info-item"><div class="card" style="text-align:center;">
+            <i class="fa fa-phone fa-2x"></i><h4>Phone</h4><p>+251 994 296 025</p>
+          </div></div>
+          <div class="contact-info-item"><div class="card" style="text-align:center;">
+            <i class="fa fa-envelope fa-2x"></i><h4>Email</h4><p>abelyesfa5@gmail.com</p>
+          </div></div>
+          <div class="contact-info-item"><div class="card" style="text-align:center;">
+            <i class="fa fa-map-marker-alt fa-2x"></i><h4>Location</h4><p>Hossana, Ethiopia</p>
+          </div></div>
+        </div>
+
+        <div class="card" style="max-width:700px;margin:auto;padding:40px;">
+          <form>
+            <input type="text" class="form-control" placeholder="Your Name" required><br>
+            <input type="email" class="form-control" placeholder="Your Email" required><br>
+            <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea><br>
+            <button type="submit" class="btn" style="width:100%;padding:15px;">Send Message</button>
           </form>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer>
-        <div class="container">
-          <p>&copy; 2025 Abel Yesfa. All rights reserved.</p>
-          <div class="social-links" style="margin-top:15px;">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-telegram"></i></a>
-          </div>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Abel Yesfa. All rights reserved.</p>
+        <div class="social-links" style="margin-top:20px;">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
         </div>
-      </footer>
-
-    </div>
+      </div>
+    </footer>
   </div>
 
   <!-- JavaScript -->
   <script>
     // Typing Effect
     const typed = document.querySelector(".typing");
-    const words = ["Web Developer","Designer","Freelancer","Creator"];
-    let i=0, j=0;
-    function type(){
-      if(j < words[i].length){
-        typed.innerHTML += words[i][j]; j++;
-        setTimeout(type,100);
-      }else{setTimeout(erase,2000);}
-    }
-    function erase(){
-      if(j>0){typed.innerHTML = words[i].substring(0,j-1); j--; setTimeout(erase,50);}
-      else{i=(i+1)%words.length; setTimeout(type,500);}
-    }
-    setTimeout(type,1000);
+    const words = ["Web Developer", "Designer", "Freelancer", "Creator"];
+    let wordIndex = 0, charIndex = 0;
 
-    // Mobile Menu + Theme + Switcher
-    document.querySelector('.nav-toggler').onclick = () => {
-      document.querySelector('.aside').classList.toggle('open');
-      document.querySelector('.nav-toggler').classList.toggle('open');
-    };
-    function setColor(c){document.documentElement.style.setProperty('--skin-color',c);}
-    document.querySelector('.day-night').onclick = () => {
-      document.body.classList.toggle('dark');
-      const icon = this.querySelector('i');
-      icon.classList.toggle('fa-moon'); icon.classList.toggle('fa-sun');
-    };
-    document.querySelector('.style-switcher-toggler').onclick = () => {
-      document.querySelector('.style-switcher').classList.toggle('open');
-    };
-    // Smooth scroll & active link
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.onclick = () => {
-        document.querySelector('.nav a.active')?.classList.remove('active');
-        link.classList.add('active');
-        if(window.innerWidth <= 991){
-          document.querySelector('.aside').classList.remove('open');
-          document.querySelector('.nav-toggler').classList.remove('open');
-        }
-      };
+    function type() {
+      if (charIndex < words[wordIndex].length) {
+        typed.textContent += words[wordIndex][charIndex];
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typed.textContent = words[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    setTimeout(type, 1000);
+
+    // Mobile Menu Toggle
+    const navToggler = document.getElementById('nav-toggler');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggler.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggler.classList.toggle('open');
     });
+
+    // Active Link on Scroll
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        if (navMenu.classList.contains('open')) {
+          navMenu.classList.remove('open');
+          navToggler.classList.remove('open');
+        }
+      });
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Dark Mode Toggle
+    document.querySelector('.day-night').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const icon = document.querySelector('.day-night i');
+      icon.classList.toggle('fa-moon');
+      icon.classList.toggle('fa-sun');
+    });
+
+    // Style Switcher Toggle
+    document.querySelector('.style-switcher-toggler').addEventListener('click', () => {
+      document.querySelector('.style-switcher').classList.toggle('open');
+    });
+
+    // Color Switcher
+    function setColor(color) {
+      document.documentElement.style.setProperty('--skin-color', color);
+    }
   </script>
 </body>
-</html>
