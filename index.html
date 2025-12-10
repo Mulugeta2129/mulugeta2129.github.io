@@ -4,168 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abel Yesfa | Web Developer & Designer</title>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Clicker+Script&display=swap" rel="stylesheet">
+  
+  <!-- Fonts (የኢትዮጵያ ፎንትም ተካቷል) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Clicker+Script&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
+  
   <style>
-    /* ===== MAIN COLORS ===== */
     :root{
       --main-blue: #3498db;
-      --body-yellow: #fffacd;
+      --sky-bg: linear-gradient(135deg, #87CEEB 0%, #E0F7FA 100%);
       --text-dark: #2c3e50;
       --text-light: #34495e;
+      --card-bg: rgba(255, 255, 255, 0.97);
     }
     body.dark{
-      --body-yellow: #1a1a1a;
+      --sky-bg: linear-gradient(135deg, #0f2027 0%, #203a43 60%, #2c5364 100%);
+      --card-bg: rgba(15, 32, 39, 0.97);
       --text-dark: #ecf0f1;
       --text-light: #bdc3c7;
     }
 
-    /* ===== BASIC SETUP ===== */
     *{margin:0;padding:0;box-sizing:border-box;}
     body{
-      font-family:'Poppins',sans-serif;
-      background:var(--blue);
-      color:var(--text-light);
+      font-family: 'Poppins', 'Noto Sans Ethiopic', sans-serif;
+      background: var(--sky-bg);
+      background-attachment: fixed;
+      color: var(--text-light);
       line-height:1.7;
-      transition:0.4s;
+      transition:0.5s;
     }
     a{text-decoration:none;}
     .container{max-width:1100px;margin:auto;padding:0 20px;}
     .section{padding:120px 0 80px;}
 
-    /* ===== SECTION TITLES ===== */
-    .section-title{
-      text-align:center;margin-bottom:70px;
-    }
-    .section-title h2{
-      font-size:42px;color:var(--text-dark);font-weight:700;
-      position:relative;display:inline-block;padding-bottom:15px;
-    }
-    .section-title h2::after{
-      content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-      width:100px;height:5px;background:var(--main-blue);border-radius:5px;
-    }
-
-    /* ===== BLUE HEADER ===== */
+    /* Header */
     .header{
       position:fixed;top:0;left:0;width:100%;
-      background:var(--main-blue);padding:20px 0;z-index:1000;
-      box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:0.4s;
+      background:rgba(52,152,219,0.98);
+      padding:20px 0;z-index:1000;
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 25px rgba(0,0,0,0.15);
+      transition:0.4s;
     }
     .header.scrolled{padding:15px 0;}
     .nav-container{display:flex;justify-content:space-between;align-items:center;}
     .logo a{font-size:32px;color:#fff;font-weight:700;}
-    .logo span{font-family:'Clicker Script',cursive;font-size:42px;color:#fff;}
-    .nav-menu a{
-      color:#fff;font-weight:600;padding:8px 15px;border-radius:30px;transition:0.3s;
-    }
-    .nav-menu a:hover, .nav-menu a.active{
-      background:rgba(255,255,255,0.2);
-    }
+    .logo span{font-family:'Clicker Script',cursive;font-size:42px;}
+    .nav-menu a{color:#fff;font-weight:600;padding:8px 15px;border-radius:30px;transition:0.3s;}
+    .nav-menu a:hover,.nav-menu a.active{background:rgba(255,255,255,0.2);}
     .nav-toggler{display:none;flex-direction:column;gap:5px;cursor:pointer;}
     .nav-toggler span{width:30px;height:3px;background:#fff;transition:0.3s;}
 
     /* Mobile Menu */
     @media (max-width:991px){
-      .nav-menu{
-        position:fixed;top:80px;left:-100%;width:100%;height:100vh;
+      .nav-menu{position:fixed;top:80px;left:-100%;width:100%;height:100vh;
         background:var(--main-blue);flex-direction:column;align-items:center;
-        justify-content:center;transition:0.4s;
-      }
+        justify-content:center;transition:0.4s;}
       .nav-menu.open{left:0;}
-      .nav-toggler{display:flex;}
+      .nav  nav-toggler{display:flex;}
     }
 
-    /* ===== CARD STYLE ===== */
+    /* Section Title */
+    .section-title{text-align:center;margin-bottom:70px;}
+    .section-title h2{font-size:42px;color:var(--text-dark);font-weight:700;
+      position:relative;display:inline-block;padding-bottom:15px;}
+    .section-title h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+      width:120px;height:6px;background:var(--main-blue);border-radius:5px;}
+
+    /* Cards */
     .card{
-      background:green;border-radius:16px;padding:30px;margin:15px 0;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-      border-left:6px solid var(--main-blue);transition:0.4s;
+      background:var(--card-bg);border-radius:16px;padding:30px;margin:15px 0;
+      box-shadow:0 12px 35px rgba(0,0,0,0.12);border-left:6px solid var(--main-blue);
+      transition:0.4s;
     }
-    .card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 20px 40px rgba(52,152,219,0.2);
+    .card:hover{transform:translateY(-12px);box-shadow:0 25px 50px rgba(52,152,219,0.25);}
+
+    /* About Frame */
+    .about-frame{
+      background:var(--card-bg);border-radius:24px;padding:50px;margin:40px 0;
+      box-shadow:0 20px 60px rgba(0,0,0,0.18);border:4px solid var(--main-blue);
+      position:relative;overflow:hidden;backdrop-filter:blur(10px);
+    }
+    .about-frame::before{
+      content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+      background:linear-gradient(45deg,transparent 30%,rgba(52,152,219,0.15) 50%,transparent 70%);
+      animation:shine 8s infinite;
+    }
+    @keyframes shine{
+      0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}
+      100%{transform:translateX(100%) translateY(100%) rotate(45deg);}
     }
 
-    /* ===== HOME ===== */
+    /* Buttons */
+    .btn{display:inline-block;padding:14px 40px;background:var(--main-blue);
+      color:#fff;border-radius:50px;font-weight:600;transition:0.3s;cursor:pointer;}
+    .btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(52,152,219,0.4);}
+    .btn.hire-me{background:transparent;border:2px solid var(--main-blue);color:var(--main-blue);}
+    .btn.hire-me:hover{background:var(--main-blue);color:#fff;}
+
+    /* Home */
     .home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;}
     .hello{font-size:32px;color:var(--text-dark);}
     .hello span,.my-profession span{color:var(--main-blue);font-family:'Clicker Script',cursive;font-size:44px;}
     .my-profession{font-size:36px;margin:15px 0;color:var(--text-dark);}
-    .home p{font-size:18px;max-width:600px;margin:30px auto 50px;}
-    .btn{
-      display:inline-block;padding:14px 40px;background:var(--main-blue);
-      color:#fff;border-radius:50px;font-weight:600;transition:0.3s;
-    }
-    .btn:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(52,152,219,0.4);}
-    .btn.hire-me{background:transparent;border:2px solid var(--main-blue);color:var(--main-blue);}
-    .btn.hire-me:hover{background:var(--main-blue);color:#fff;}
-    .home-img img{width:350px;border-radius:20px;border:8px solid var(--main-blue);margin-top:40px;}
+    .home p{font-size:18px;max-width:700px;margin:30px auto 50px;}
+    .home-img img{width:350px;border-radius:20px;border:10px solid #fff;margin-top:40px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.2);}
 
-    /* ===== ABOUT & SKILLS ===== */
-    .info-item p{padding:10px 0;border-bottom:1px dashed #ddd;}
-    .info-item p span{color:var(--text-dark);font-weight:500;}
-    .skill-item{margin:25px 0;}
-    .progress{height:10px;background:#eee;border-radius:10px;position:relative;}
+    /* Skills */
+    .progress{height:12px;background:#eee;border-radius:10px;position:relative;margin:10px 0;}
     .progress-in{height:100%;background:var(--main-blue);border-radius:10px;}
-    .skill-percent{position:absolute;right:0;top:-40px;color:var(--main-blue);font-weight:600;}
+    .skill-percent{position:absolute;right:0;top:-35px;color:var(--main-blue);font-weight:600;}
 
-    /* ===== SERVICES & PORTFOLIO ===== */
-    .service-item,.portfolio-item,.contact-info-item{
-      flex:0 0 33.33%;max-width:33.33%;padding:15px;
-    }
-    .icon{
-      width:80px;height:80px;background:#ebf3fd;border-radius:50%;
-      margin:0 auto 25px;display:flex;align-items:center;justify-content:center;
-      transition:0.5s;
-    }
+    /* Services & Portfolio */
+    .service-item,.portfolio-item,.contact-info-item{flex:0 0 33.33%;max-width:33.33%;padding:15px;}
+    .icon{width:80px;height:80px;background:#ebf3fd;border-radius:50%;margin:0 auto 25px;
+      display:flex;align-items:center;justify-content:center;transition:0.5s;}
     .icon i{font-size:38px;color:var(--main-blue);}
-    .service-item:hover .icon{
-      background:var(--main-blue);transform:rotate(360deg);
-    }
+    .service-item:hover .icon{background:var(--main-blue);transform:rotate(360deg);}
     .service-item:hover .icon i{color:#fff;}
 
-    /* ===== CONTACT ===== */
-    .form-control{
-      width:100%;padding:15px 25px;border-radius:30px;border:none;
-      background:#fff;margin:12px 0;box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    }
+    /* Contact Form */
+    .form-control{width:100%;padding:15px 25px;border-radius:30px;border:none;
+      background:#fff;margin:12px 0;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
     textarea.form-control{height:150px;resize:none;}
 
-    /* ===== FOOTER ===== */
-    footer{
-      background:var(--main-blue);color:#fff;text-align:center;padding:40px 0;
-    }
-    .social-links a{
-      display:inline-block;width:45px;height:45px;background:#fff;
-      color:var(--main-blue);line-height:45px;border-radius:50%;
-      margin:0 8px;font-size:18px;transition:0.3s;
-    }
+    /* Footer */
+    footer{background:var(--main-blue);color:#fff;text-align:center;padding:50px 0;}
+    .social-links a{display:inline-block;width:45px;height:45px;background:#fff;
+      color:var(--main-blue);line-height:45px;border-radius:50%;margin:0 8px;
+      font-size:18px;transition:0.3s;}
     .social-links a:hover{transform:translateY(-8px);}
 
-    /* ===== STYLE SWITCHER ===== */
-    .style-switcher{
-      position:fixed;right:-220px;top:120px;width:220px;background:#fff;
-      padding:20px;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,0.2);
-      z-index:999;transition:0.4s;
-    }
+    /* Style Switcher */
+    .style-switcher{position:fixed;right:-220px;top:120px;width:220px;background:#fff;
+      padding:20px;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,0.2);z-index:999;transition:0.4s;}
     .style-switcher.open{right:0;}
-    .style-switcher .s-icon{
-      position:absolute;left:-40px;width:40px;height:40px;
-      background:var(--main-blue);color:#fff;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;cursor:pointer;
-    }
+    .style-switcher .s-icon{position:absolute;left:-40px;width:40px;height:40px;
+      background:var(--main-blue);color:#fff;border-radius:50%;display:flex;
+      align-items:center;justify-content:center;cursor:pointer;}
 
     /* Responsive */
     @media (max-width:991px){
       .service-item,.portfolio-item,.contact-info-item{flex:0 0 100%;max-width:100%;}
       .home-img img{width:280px;}
-    }
-    @media (max-width:767px){
-      .info-item{flex:0 0 100%;}
     }
   </style>
 </head>
@@ -177,7 +159,7 @@
     <div class="s-icon day-night"><i class="fas fa-moon"></i></div>
   </div>
 
-  <!-- Blue Header -->
+  <!-- Header -->
   <header class="header" id="header">
     <div class="container nav-container">
       <div class="logo"><a href="#"><span>A</span>bel</a></div>
@@ -200,9 +182,8 @@
     <section class="home section" id="home">
       <div class="container">
         <h3 class="hello">Hello, I'm <span>Abel Yesfa</span></h3>
-        <h3 class="my-profession">I'm a <span class="typing">Wellcome to my portifolio</span></h3>
-        <p> My name is Abel Yisfa , I am born in south nation nationality of Ethiopia in the Gurage Zone and complete my primary and secondary School in the gurage zone .
-        in 2015 e.c i had join to the WCU and now i am cs 3rd year student.</p>
+        <h3 class="my-profession">I'm a <span class="typing"></span></h3>
+        <p>My name is Abel Yesfa, I was born in Gurage Zone, South Ethiopia Nation Nationalities and Peoples Region. I completed my primary and secondary education there. In 2015 E.C I joined Wolkite University and now I am a 3rd year Computer Science student.</p>
         <a href="#contact" class="btn hire-me">Hire Me</a>
         <div class="home-img">
           <img src="images/Abels.jpg" alt="Abel Yesfa">
@@ -214,31 +195,32 @@
     <section class="about section" id="about">
       <div class="container">
         <div class="section-title"><h2>About Me</h2></div>
-        <div class="card" style="text-align:center;margin-bottom:40px;">
-          <h3>I'm Abel Yesfa – <span style="color:var(--main-blue);">Web Developer & Designer</span></h3>
-          <p>Computer Science student | Love clean code & modern design | Building the future of the web one line at a time</p>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:30px;">
-          <div class="card" style="flex:1;min-width:300px;">
-            <div style="display:flex;flex-wrap:wrap;">
-              <div class="info-item" style="flex:0 0 50%;"><p>Birthday: <span>08 July 2003</span></p></div>
-              <div class="info-item" style="flex:0 0 50%;"><p>Age: <span>22</span></p></div>
-              <div class="info-item" style="flex:0 0 50%;"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
-              <div class="info-item" style="flex:0 0 50%;"><p>Phone: <span>+251 994 296 025</span></p></div>
-              <div class="info-item" style="flex:0 0 50%;"><p>City: <span>Hossana, Ethiopia</span></p></div>
-              <div class="info-item" style="flex:0 0 50%;"><p>Freelance: <span>Available</span></p></div>
+        
+        <div class="about-frame">
+          <h3 style="text-align:center;margin-bottom:20px;color:var(--main-blue);">I'm Abel Yesfa – Web Developer & Designer</h3>
+          <p style="text-align:center;font-size:18px;margin-bottom:40px;">Computer Science student | Love clean code & modern design | Building the future of the web one line at a time</p>
+          
+          <div style="display:flex;flex-wrap:wrap;gap:40px;">
+            <div style="flex:1;min-width:300px;">
+              <p><strong>Birthday:</strong> <span>08 July 2003</span></p>
+              <p><strong>Age:</strong> <span>22</span></p>
+              <p><strong>Email:</strong> <span>abelyesfa5@gmail.com</span></p>
+              <p><strong>Phone:</strong> <span>+251 994 296 025</span></p>
+              <p><strong>City:</strong> <span>Hossana, Ethiopia</span></p>
+              <p><strong>Freelance:</strong> <span style="color:green;font-weight:bold;">Available</span></p>
             </div>
-            <div style="text-align:center;margin-top:30px;">
-              <a href="#" class="btn">Download CV</a>
-              <a href="#contact" class="btn hire-me">Hire Me</a>
+            <div style="flex:1;min-width:300px;">
+              <h4 style="margin-bottom:20px;color:var(--main-blue);">Skills</h4>
+              <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
+              <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
+              <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
+              <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
             </div>
           </div>
-          <div class="card" style="flex:1;min-width:300px;">
-            <h3 style="margin-bottom:25px;">Skills</h3>
-            <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
-            <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
-            <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
-            <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
+          
+          <div style="text-align:center;margin-top:45px;">
+            <a href="#" class="btn">Download CV</a>
+            <a href="#contact" class="btn hire-me">Hire Me</a>
           </div>
         </div>
       </div>
@@ -274,7 +256,7 @@
             <img src="images/project1.jpg" alt="Project" style="width:100%;border-radius:12px;">
             <h4 style="margin-top:15px;text-align:center;">Project Title 1</h4>
           </div></div>
-          <!-- You can add more projects here -->
+          <!-- Add more projects here -->
         </div>
       </div>
     </section>
@@ -296,10 +278,10 @@
         </div>
         <div class="card" style="max-width:700px;margin:auto;padding:40px;">
           <form>
-            <input type="text" class="form-control" placeholder="Your Name" required><br>
-            <input type="email" class="form-control" placeholder="Your Email" required><br>
-            <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea><br>
-            <button type="submit" class="btn" style="width:100%;">Send Message</button>
+            <input type="text" class="form-control" placeholder="Your Name" required>
+            <input type="email" class="form-control" placeholder="Your Email" required>
+            <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea>
+            <button type="submit" class="btn" style="width:100%;margin-top:15px;">Send Message</button>
           </form>
         </div>
       </div>
@@ -353,35 +335,27 @@
       document.getElementById('nav-toggler').classList.toggle('open');
     });
 
-    // Active Link on Scroll
+    // Active Link on Scroll + Smooth Scroll
     window.addEventListener('scroll', () => {
       let current = '';
       document.querySelectorAll('section').forEach(section => {
-        if (window.pageYOffset >= section.offsetTop - 150) {
-          current = section.getAttribute('id');
-        }
+        if (window.pageYOffset >= section.offsetTop - 150) current = section.getAttribute('id');
       });
       document.querySelectorAll('.nav-menu a').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
       });
+      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         if (document.getElementById('nav-menu').classList.contains('open')) {
           document.getElementById('nav-menu').classList.remove('open');
-          document.getElementById('nav-toggler').classList.remove('open');
         }
       });
-    });
-
-    // Header Scroll Effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Dark Mode
@@ -392,7 +366,7 @@
       icon.classList.toggle('fa-sun');
     });
 
-    // Style Switcher
+    // Style Switcher Toggle
     document.querySelector('.style-switcher-toggler').addEventListener('click', () => {
       document.querySelector('.style-switcher').classList.toggle('open');
     });
