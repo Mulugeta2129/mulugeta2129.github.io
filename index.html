@@ -4,372 +4,340 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abel Yesfa | Web Developer & Designer</title>
-  
-  <!-- Fonts (የኢትዮጵያ ፎንትም ተካቷል) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Clicker+Script&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet"/>
   
   <style>
-    :root{
-      --main-blue: #3498db;
-      --sky-bg: linear-gradient(135deg, #87CEEB 0%, #E0F7FA 100%);
-      --text-dark: #2c3e50;
-      --text-light: #34495e;
-      --card-bg: rgba(255, 255, 255, 0.97);
-    }
-    body.dark{
-      --sky-bg: linear-gradient(135deg, #0f2027 0%, #203a43 60%, #2c5364 100%);
-      --card-bg: rgba(15, 32, 39, 0.97);
-      --text-dark: #ecf0f1;
-      --text-light: #bdc3c7;
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
+    :root { --primary: #00d4ff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
       font-family: 'Poppins', 'Noto Sans Ethiopic', sans-serif;
-      background: var(--sky-bg);
-      background-attachment: fixed;
-      color: var(--text-light);
-      line-height:1.7;
-      transition:0.5s;
+      background-color: #000;
+      color: white;
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     }
-    a{text-decoration:none;}
-    .container{max-width:1100px;margin:auto;padding:0 20px;}
-    .section{padding:120px 0 80px;}
-
-    /* Header */
-    .header{
-      position:fixed;top:0;left:0;width:100%;
-      background:rgba(52,152,219,0.98);
-      padding:20px 0;z-index:1000;
-      backdrop-filter:blur(12px);
-      box-shadow:0 4px 25px rgba(0,0,0,0.15);
-      transition:0.4s;
+    header {
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      transition: all 0.4s ease;
+      border-bottom: 2px solid var(--primary);
     }
-    .header.scrolled{padding:15px 0;}
-    .nav-container{display:flex;justify-content:space-between;align-items:center;}
-    .logo a{font-size:32px;color:#fff;font-weight:700;}
-    .logo span{font-family:'Clicker Script',cursive;font-size:42px;}
-    .nav-menu a{color:#fff;font-weight:600;padding:8px 15px;border-radius:30px;transition:0.3s;}
-    .nav-menu a:hover,.nav-menu a.active{background:rgba(255,255,255,0.2);}
-    .nav-toggler{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-    .nav-toggler span{width:30px;height:3px;background:#fff;transition:0.3s;}
-
-    /* Mobile Menu */
-    @media (max-width:991px){
-      .nav-menu{position:fixed;top:80px;left:-100%;width:100%;height:100vh;
-        background:var(--main-blue);flex-direction:column;align-items:center;
-        justify-content:center;transition:0.4s;}
-      .nav-menu.open{left:0;}
-      .nav  nav-toggler{display:flex;}
+    .profile-left { display: flex; align-items: center; gap: 14px; }
+    .profile-img {
+      width: 60px; height: 60px; border-radius: 50%;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 20px var(--primary);
+      object-fit: cover;
     }
-
-    /* Section Title */
-    .section-title{text-align:center;margin-bottom:70px;}
-    .section-title h2{font-size:42px;color:var(--text-dark);font-weight:700;
-      position:relative;display:inline-block;padding-bottom:15px;}
-    .section-title h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-      width:120px;height:6px;background:var(--main-blue);border-radius:5px;}
-
-    /* Cards */
-    .card{
-      background:var(--card-bg);border-radius:16px;padding:30px;margin:15px 0;
-      box-shadow:0 12px 35px rgba(0,0,0,0.12);border-left:6px solid var(--main-blue);
-      transition:0.4s;
+    .profile-name {
+      font-size: 1.8rem; font-weight: 700; color: var(--primary);
+      text-shadow: 0 0 15px rgba(0,212,255,0.9);
     }
-    .card:hover{transform:translateY(-12px);box-shadow:0 25px 50px rgba(52,152,219,0.25);}
-
-    /* About Frame */
-    .about-frame{
-      background:var(--card-bg);border-radius:24px;padding:50px;margin:40px 0;
-      box-shadow:0 20px 60px rgba(0,0,0,0.18);border:4px solid var(--main-blue);
-      position:relative;overflow:hidden;backdrop-filter:blur(10px);
+    nav ul {
+      display: flex; justify-content: center; gap: 1rem;
+      list-style: none; flex-wrap: wrap;
     }
-    .about-frame::before{
-      content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
-      background:linear-gradient(45deg,transparent 30%,rgba(52,152,219,0.15) 50%,transparent 70%);
-      animation:shine 8s infinite;
+    nav a {
+      color: white; text-decoration: none; padding: 0.7rem 1.4rem;
+      border-radius: 50px; font-weight: 600; font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
     }
-    @keyframes shine{
-      0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}
-      100%{transform:translateX(100%) translateY(100%) rotate(45deg);}
+    nav a:hover, nav a.active {
+      background: var(--primary); color: #000; transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,212,255,0.5);
     }
-
-    /* Buttons */
-    .btn{display:inline-block;padding:14px 40px;background:var(--main-blue);
-      color:#fff;border-radius:50px;font-weight:600;transition:0.3s;cursor:pointer;}
-    .btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(52,152,219,0.4);}
-    .btn.hire-me{background:transparent;border:2px solid var(--main-blue);color:var(--main-blue);}
-    .btn.hire-me:hover{background:var(--main-blue);color:#fff;}
-
-    /* Home */
-    .home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;}
-    .hello{font-size:32px;color:var(--text-dark);}
-    .hello span,.my-profession span{color:var(--main-blue);font-family:'Clicker Script',cursive;font-size:44px;}
-    .my-profession{font-size:36px;margin:15px 0;color:var(--text-dark);}
-    .home p{font-size:18px;max-width:700px;margin:30px auto 50px;}
-    .home-img img{width:350px;border-radius:20px;border:10px solid #fff;margin-top:40px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.2);}
-
-    /* Skills */
-    .progress{height:12px;background:#eee;border-radius:10px;position:relative;margin:10px 0;}
-    .progress-in{height:100%;background:var(--main-blue);border-radius:10px;}
-    .skill-percent{position:absolute;right:0;top:-35px;color:var(--main-blue);font-weight:600;}
-
-    /* Services & Portfolio */
-    .service-item,.portfolio-item,.contact-info-item{flex:0 0 33.33%;max-width:33.33%;padding:15px;}
-    .icon{width:80px;height:80px;background:#ebf3fd;border-radius:50%;margin:0 auto 25px;
-      display:flex;align-items:center;justify-content:center;transition:0.5s;}
-    .icon i{font-size:38px;color:var(--main-blue);}
-    .service-item:hover .icon{background:var(--main-blue);transform:rotate(360deg);}
-    .service-item:hover .icon i{color:#fff;}
-
-    /* Contact Form */
-    .form-control{width:100%;padding:15px 25px;border-radius:30px;border:none;
-      background:#fff;margin:12px 0;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
-    textarea.form-control{height:150px;resize:none;}
-
-    /* Footer */
-    footer{background:var(--main-blue);color:#fff;text-align:center;padding:50px 0;}
-    .social-links a{display:inline-block;width:45px;height:45px;background:#fff;
-      color:var(--main-blue);line-height:45px;border-radius:50%;margin:0 8px;
-      font-size:18px;transition:0.3s;}
-    .social-links a:hover{transform:translateY(-8px);}
-
-    /* Style Switcher */
-    .style-switcher{position:fixed;right:-220px;top:120px;width:220px;background:#fff;
-      padding:20px;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,0.2);z-index:999;transition:0.4s;}
-    .style-switcher.open{right:0;}
-    .style-switcher .s-icon{position:absolute;left:-40px;width:40px;height:40px;
-      background:var(--main-blue);color:#fff;border-radius:50%;display:flex;
-      align-items:center;justify-content:center;cursor:pointer;}
-
-    /* Responsive */
-    @media (max-width:991px){
-      .service-item,.portfolio-item,.contact-info-item{flex:0 0 100%;max-width:100%;}
-      .home-img img{width:280px;}
+    main {
+      padding-top: 180px; max-width: 1200px; margin: 0 auto;
+      padding-left: 1.5rem; padding-right: 1.5rem;
+    }
+    section { margin-bottom: 6rem; scroll-margin-top: 180px; }
+    .welcome-text {
+      font-weight: 700; text-align: center; margin: 2.5rem auto 3.5rem;
+      color: yellow; background: linear-gradient(90deg, #00d4ff, #0099cc);
+      padding: 1.2rem 2rem; border-radius: 15px; font-size: 1.6rem;
+      text-decoration: underline; text-shadow: 0 0 10px #00d4ff;
+      opacity: 0; overflow: hidden; border-right: 6px solid var(--primary);
+      white-space: nowrap; width: 0; max-width: 95vw;
+      animation: typing 4s steps(70) forwards, blink 0.9s infinite;
+    }
+    @keyframes typing { from { width: 0; opacity: 1; } to { width: 100%; opacity: 1; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    h1 { font-size: 5rem; text-align: center; margin: 2rem 0; color: var(--primary); text-shadow: 0 0 20px var(--primary); }
+    h2 { font-size: 2.8rem; text-align: center; margin: 3rem 0 2rem; color: var(--primary); }
+    .full-photo {
+      width: 100%; max-width: 420px; height: auto;
+      border-radius: 25px; border: 8px solid var(--primary);
+      box-shadow: 0 0 40px var(--primary); display: block; margin: 3rem auto;
+    }
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border: 3px solid rgba(0,212,255,0.4);
+      transition: all 0.4s ease;
+    }
+    .card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0,212,255,0.3); }
+    .skill-item { margin: 1.6rem 0; }
+    .skill-name { display: flex; justify-content: space-between; margin-bottom: 0.6rem; font-weight: 600; color: #00d4ff; font-size: 1.1rem; }
+    .progress-bar { height: 18px; background: rgba(255,255,255,0.15); border-radius: 12px; overflow: hidden; }
+    .progress { height: 100%; background: linear-gradient(90deg, #00d4ff, #0099cc); border-radius: 12px; width: 0; transition: width 2.5s ease; }
+    .service-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .service-card {
+      background: rgba(0,212,255,0.1); padding: 2.5rem; border-radius: 20px;
+      text-align: center; border: 2px solid var(--primary); transition: 0.4s;
+    }
+    .service-card:hover { background: rgba(0,212,255,0.2); transform: translateY(-10px); }
+    .service-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem; }
+    .contact-card {
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,100,150,0.2));
+      padding: 4rem 3rem; border-radius: 30px; text-align: center;
+      box-shadow: 0 25px 60px rgba(0,212,255,0.3); border: 4px solid var(--primary);
+      max-width: 900px; margin: 3rem auto;
+    }
+    .contact-form {
+      max-width: 700px; margin: 2.5rem auto 0; padding: 2rem;
+      background: rgba(0,0,0,0.4); border-radius: 25px; backdrop-filter: blur(10px);
+    }
+    .form-group { margin-bottom: 1.8rem; text-align: left; }
+    .form-group label { display: block; margin-bottom: 0.6rem; font-weight: 600; color: var(--primary); }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 1.1rem; border: none; border-radius: 15px;
+      background: rgba(255,255,255,0.15); color: white; font-size: 1rem;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #aaa; }
+    .form-group textarea { height: 160px; resize: vertical; }
+    .submit-btn {
+      background: var(--primary); color: #000; padding: 1.1rem 3rem;
+      border: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem;
+      cursor: pointer; transition: all 0.4s;
+    }
+    .submit-btn:hover { background: white; transform: scale(1.08); }
+    footer {
+      background: rgba(0,0,0,0.95); color: white; text-align: center;
+      padding: 5rem 1.5rem; margin-top: 8rem; border-top: 3px solid var(--primary);
+    }
+    .social-links {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin: 2.5rem 0;
+    }
+    .social-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      transition: all 0.4s;
+    }
+    .social-item a {
+      color: white; font-size: 3rem; transition: all 0.4s;
+    }
+    .social-item a:hover {
+      color: var(--primary); transform: translateY(-10px) scale(1.3);
+    }
+    .social-item span { font-size: 1rem; color: #ccc; }
+    @media (max-width: 768px) {
+      main { padding-top: 200px; }
+      header { flex-direction: column; gap: 1rem; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 2.4rem; }
+      .welcome-text { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Style Switcher -->
-  <div class="style-switcher">
-    <div class="s-icon style-switcher-toggler"><i class="fas fa-cog fa-spin"></i></div>
-    <div class="s-icon day-night"><i class="fas fa-moon"></i></div>
-  </div>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container nav-container">
-      <div class="logo"><a href="#"><span>A</span>bel</a></div>
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-toggler" id="nav-toggler">
-        <span></span><span></span><span></span>
-      </div>
+  <header>
+    <div class="profile-left">
+      <img src="images/Abels.jpg" alt="Abel Yesfa" class="profile-img">
+      <div class="profile-name">Abel Yesfa</div>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="main-content">
-
-    <!-- Home -->
-    <section class="home section" id="home">
-      <div class="container">
-        <h3 class="hello">Hello, I'm <span>Abel Yesfa</span></h3>
-        <h3 class="my-profession">I'm a <span class="typing"></span></h3>
-        <p>My name is Abel Yesfa, I was born in Gurage Zone, South Ethiopia Nation Nationalities and Peoples Region. I completed my primary and secondary education there. In 2015 E.C I joined Wolkite University and now I am a 3rd year Computer Science student.</p>
-        <a href="#contact" class="btn hire-me">Hire Me</a>
-        <div class="home-img">
-          <img src="images/Abels.jpg" alt="Abel Yesfa">
-        </div>
-      </div>
+  <main>
+    <section id="home">
+      <div class="welcome-text">Welcome to My Professional Portfolio</div>
+      <h1>Abel Yesfa</h1>
+      <p style="text-align:center; font-size:1.5rem; color:#00d4ff;">
+        Web Developer & Designer • Computer Science Student
+      </p>
+      <img src="images/Abels.jpg" alt="Abel Yesfa" class="full-photo">
     </section>
 
-    <!-- About -->
-    <section class="about section" id="about">
-      <div class="container">
-        <div class="section-title"><h2>About Me</h2></div>
-        
-        <div class="about-frame">
-          <h3 style="text-align:center;margin-bottom:20px;color:var(--main-blue);">I'm Abel Yesfa – Web Developer & Designer</h3>
-          <p style="text-align:center;font-size:18px;margin-bottom:40px;">Computer Science student | Love clean code & modern design | Building the future of the web one line at a time</p>
-          
-          <div style="display:flex;flex-wrap:wrap;gap:40px;">
-            <div style="flex:1;min-width:300px;">
-              <p><strong>Birthday:</strong> <span>08 July 2003</span></p>
-              <p><strong>Age:</strong> <span>22</span></p>
-              <p><strong>Email:</strong> <span>abelyesfa5@gmail.com</span></p>
-              <p><strong>Phone:</strong> <span>+251 994 296 025</span></p>
-              <p><strong>City:</strong> <span>Hossana, Ethiopia</span></p>
-              <p><strong>Freelance:</strong> <span style="color:green;font-weight:bold;">Available</span></p>
-            </div>
-            <div style="flex:1;min-width:300px;">
-              <h4 style="margin-bottom:20px;color:var(--main-blue);">Skills</h4>
-              <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
-              <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
-              <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
-              <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
-            </div>
+    <section id="about">
+      <div class="welcome-text">Get to Know Me Better</div>
+      <h2>About Me</h2>
+      <div class="card">
+        <p style="font-size:1.2rem; line-height:2; text-align:center;">
+          My name is <strong>Abel Yesfa</strong>, I was born in Gurage Zone, South Ethiopia Nation Nationalities and Peoples Region. 
+          I completed my primary and secondary education there. In 2015 E.C I joined Wolkite University and now I am a 
+          <strong>3rd year Computer Science student</strong>.
+        </p>
+        <p style="margin-top:1.5rem; font-size:1.15rem; color:#00d4ff; text-align:center;">
+          Computer Science student | Love clean code & modern design | Building the future of the web one line at a time
+        </p>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:2rem; margin-top:2.5rem;">
+          <div>
+            <p><strong>Birthday:</strong> 08 July 2003</p>
+            <p><strong>Age:</strong> 22</p>
+            <p><strong>Email:</strong> abelyesfa5@gmail.com</p>
+            <p><strong>Phone:</strong> +251 994 296 025</p>
+            <p><strong>City:</strong> Hossana, Ethiopia</p>
+            <p><strong>Freelance:</strong> <span style="color:#00ff00;">Available</span></p>
           </div>
-          
-          <div style="text-align:center;margin-top:45px;">
-            <a href="#" class="btn">Download CV</a>
-            <a href="#contact" class="btn hire-me">Hire Me</a>
+          <div>
+            <h4 style="color:var(--primary); margin-bottom:1rem;">Skills</h4>
+            <div class="skill-item"><div class="skill-name">HTML <span>90%</span></div><div class="progress-bar"><div class="progress" style="width:90%"></div></div></div>
+            <div class="skill-item"><div class="skill-name">CSS <span>85%</span></div><div class="progress-bar"><div class="progress" style="width:85%"></div></div></div>
+            <div class="skill-item"><div class="skill-name">JavaScript <span>75%</span></div><div class="progress-bar"><div class="progress" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-name">PHP <span>65%</span></div><div class="progress-bar"><div class="progress" style="width:65%"></div></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="service section" id="services">
-      <div class="container">
-        <div class="section-title"><h2>Services</h2></div>
-        <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
-          <div class="service-item"><div class="card" style="text-align:center;">
-            <div class="icon"><i class="fa fa-laptop-code"></i></div>
-            <h4>Web Development</h4><p>Modern, responsive websites</p>
-          </div></div>
-          <div class="service-item"><div class="card" style="text-align:center;">
-            <div class="icon"><i class="fa fa-palette"></i></div>
-            <h4>UI/UX Design</h4><p>Beautiful user interfaces</p>
-          </div></div>
-          <div class="service-item"><div class="card" style="text-align:center;">
-            <div class="icon"><i class="fa fa-mobile-alt"></i></div>
-            <h4>Responsive Design</h4><p>Perfect on all devices</p>
-          </div></div>
+    <section id="services">
+      <div class="welcome-text">What I Offer</div>
+      <h2>Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <i class="fa fa-laptop-code"></i>
+          <h4>Web Development</h4>
+          <p>Modern, responsive, and fast-loading websites</p>
+        </div>
+        <div class="service-card">
+          <i class="fa fa-palette"></i>
+          <h4>UI/UX Design</h4>
+          <p>Beautiful, intuitive, and user-friendly interfaces</p>
+        </div>
+        <div class="service-card">
+          <i class="fa fa-mobile-alt"></i>
+          <h4>Responsive Design</h4>
+          <p>Perfect experience on all devices – mobile, tablet, desktop</p>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio -->
-    <section class="portfolio section" id="portfolio">
-      <div class="container">
-        <div class="section-title"><h2>Portfolio</h2></div>
-        <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;">
-          <div class="portfolio-item"><div class="card">
-            <img src="images/project1.jpg" alt="Project" style="width:100%;border-radius:12px;">
-            <h4 style="margin-top:15px;text-align:center;">Project Title 1</h4>
-          </div></div>
-          <!-- Add more projects here -->
+    <section id="portfolio">
+      <div class="welcome-text">My Recent Works</div>
+      <h2>Portfolio</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:2rem;">
+        <div class="card">
+          <img src="images/project1.jpg" alt="Project" style="width:100%; border-radius:15px;">
+          <h4 style="text-align:center; margin-top:1rem; color:var(--primary);">Project Title 1</h4>
         </div>
+        <!-- Add more projects here -->
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-title"><h2>Contact Me</h2></div>
-        <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-bottom:50px;">
-          <div class="contact-info-item"><div class="card" style="text-align:center;">
-            <i class="fa fa-phone fa-2x" style="color:var(--main-blue);"></i><h4>Phone</h4><p>+251 994 296 025</p>
-          </div></div>
-          <div class="contact-info-item"><div class="card" style="text-align:center;">
-            <i class="fa fa-envelope fa-2x" style="color:var(--main-blue);"></i><h4>Email</h4><p>abelyesfa5@gmail.com</p>
-          </div></div>
-          <div class="contact-info-item"><div class="card" style="text-align:center;">
-            <i class="fa fa-map-marker-alt fa-2x" style="color:var(--main-blue);"></i><h4>Location</h4><p>Hossana, Ethiopia</p>
-          </div></div>
-        </div>
-        <div class="card" style="max-width:700px;margin:auto;padding:40px;">
-          <form>
-            <input type="text" class="form-control" placeholder="Your Name" required>
-            <input type="email" class="form-control" placeholder="Your Email" required>
-            <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea>
-            <button type="submit" class="btn" style="width:100%;margin-top:15px;">Send Message</button>
+    <section id="contact">
+      <div class="welcome-text">Let's Work Together</div>
+      <h2>Contact Me</h2>
+      <div class="contact-card">
+        <div class="contact-form">
+          <form action="https://formsubmit.co/abelyesfa5@gmail.com" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" name="name" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea name="message" required placeholder="Write your message..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://abelyesfa.github.io/thanks.html">
           </form>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Abel Yesfa. All rights reserved.</p>
-        <div class="social-links" style="margin-top:20px;">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-telegram"></i></a>
+        <div style="margin-top:3rem; color:yellow;">
+          <p style="font-size:1.3rem;">
+            Phone: <strong>+251 994 296 025</strong> • Email: <strong>abelyesfa5@gmail.com</strong>
+          </p>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
+  </main>
 
-  <!-- JavaScript -->
+  <footer>
+    <div class="social-links">
+      <div class="social-item">
+        <a href="#"><i class="fab fa-facebook"></i></a><span>Facebook</span>
+      </div>
+      <div class="social-item">
+        <a href="#"><i class="fab fa-github"></i></a><span>GitHub</span>
+      </div>
+      <div class="social-item">
+        <a href="#"><i class="fab fa-linkedin"></i></a><span>LinkedIn</span>
+      </div>
+      <div class="social-item">
+        <a href="#"><i class="fab fa-telegram"></i></a><span>Telegram</span>
+      </div>
+    </div>
+    <p style="margin-top:2rem; color:#00d4ff;">© 2025 <strong>Abel Yesfa</strong>. All rights reserved.</p>
+  </footer>
+
   <script>
-    // Typing Effect
-    const typed = document.querySelector(".typing");
-    const words = ["Web Developer", "Designer", "Freelancer", "Creator"];
-    let wordIndex = 0, charIndex = 0;
-    function type() {
-      if (charIndex < words[wordIndex].length) {
-        typed.textContent += words[wordIndex][charIndex];
-        charIndex++;
-        setTimeout(type, 100);
-      } else {
-        setTimeout(erase, 2000);
-      }
-    }
-    function erase() {
-      if (charIndex > 0) {
-        typed.textContent = words[wordIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-      } else {
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, 500);
-      }
-    }
-    setTimeout(type, 1000);
-
-    // Mobile Menu
-    document.getElementById('nav-toggler').addEventListener('click', () => {
-      document.getElementById('nav-menu').classList.toggle('open');
-      document.getElementById('nav-toggler').classList.toggle('open');
-    });
-
-    // Active Link on Scroll + Smooth Scroll
-    window.addEventListener('scroll', () => {
-      let current = '';
-      document.querySelectorAll('section').forEach(section => {
-        if (window.pageYOffset >= section.offsetTop - 150) current = section.getAttribute('id');
-      });
-      document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-      });
-      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        if (document.getElementById('nav-menu').classList.contains('open')) {
-          document.getElementById('nav-menu').classList.remove('open');
+        const target = document.querySelector(a.getAttribute('href'));
+        window.scrollTo({ top: target.offsetTop - 140, behavior: 'smooth' });
+      });
+    });
+
+    // Typing animation trigger on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.welcome-text').forEach(t => {
+            t.style.animation = 'none';
+            t.offsetHeight;
+            t.style.animation = 'typing 4s steps(70) forwards, blink 0.9s infinite';
+          });
         }
       });
-    });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-    // Dark Mode
-    document.querySelector('.day-night').addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      const icon = document.querySelector('.day-night i');
-      icon.classList.toggle('fa-moon');
-      icon.classList.toggle('fa-sun');
-    });
-
-    // Style Switcher Toggle
-    document.querySelector('.style-switcher-toggler').addEventListener('click', () => {
-      document.querySelector('.style-switcher').classList.toggle('open');
-    });
+    // Progress bars animation
+    const progressObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.progress').forEach(bar => {
+            const width = bar.parentElement.previousElementSibling.querySelector('span').textContent;
+            bar.style.width = width;
+          });
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.card').forEach(c => progressObs.observe(c));
   </script>
 </body>
 </html>
