@@ -1,9 +1,312 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>wellcome</title>
-  </head>
-  <body>
-    <h1>my first github website</h1>
-  </body>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abel Yesfa | Web Developer & Designer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Clicker+Script&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Style Switcher -->
+  <div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+      <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon">
+      <i class="fas fa-moon"></i>
+    </div>
+    <h4>Theme Colors</h4>
+    <div class="colors">
+      <span class="color-1" data-color="#ec1839"></span>
+      <span class="color-2" data-color="#fa5b0f"></span>
+      <span class="color-3" data-color="#37b182"></span>
+      <span class="color-4" data-color="#1854b4"></span>
+      <span class="color-5" data-color="#f021b2"></span>
+    </div>
+  </div>
+
+  <div class="main-container">
+
+    <!-- Aside (Sidebar) -->
+    <div class="aside">
+      <div class="logo">
+        <a href="#"><span>A</span>bel</a>
+      </div>
+      <div class="nav-toggler">
+        <span></span>
+      </div>
+      <ul class="nav">
+        <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
+        <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+        <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Home Section -->
+      <section class="home section" id="home">
+        <div class="container">
+          <div class="row">
+            <div class="home-info padd-15">
+              <h3 class="hello">Hello, my name is <span class="name">Abel Yesfa</span></h3>
+              <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
+              <p>
+                Passionate web developer & designer with strong skills in HTML, CSS, JavaScript, PHP and modern frameworks.
+                I love creating clean, responsive, and user-friendly websites.
+              </p>
+              <a href="#contact" class="btn hire-me">Hire Me</a>
+            </div>
+            <div class="home-img padd-15">
+              <img src="images/Abels.jpg" alt="Abel Yesfa">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>About Me</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="about-content padd-15">
+              <div class="row">
+                <div class="about-text padd-15">
+                  <h3>I'm Abel Yesfa — <span>Web Developer & UI Designer</span></h3>
+                  <p>
+                    I'm a Computer Science student and a passionate web developer from Ethiopia.
+                    I enjoy turning ideas into beautiful and functional websites. Currently focusing on front-end and back-end technologies.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="personal-info padd-15">
+                  <div class="row">
+                    <div class="info-item padd-15"><p>Birthday: <span>08 July 2003</span></p></div>
+                    <div class="info-item padd-15"><p>Age: <span>22</span></p></div>
+                    <div class="info-item padd-15"><p>Email: <span>abelyesfa5@gmail.com</span></p></div>
+                    <div class="info-item padd-15"><p>Phone: <span>+251 994 296 025</span></p></div>
+                    <div class="info-item padd-15"><p>City: <span>Hossana, Ethiopia</span></p></div>
+                    <div class="info-item padd-15"><p>Degree: <span>BSc Computer Science (Student)</span></p></div>
+                    <div class="info-item padd-15"><p>Freelance: <span>Available</span></p></div>
+                  </div>
+                  <div class="buttons padd-15">
+                    <a href="#" class="btn">Download CV</a>
+                    <a href="#contact" class="btn hire-me">Hire Me</a>
+                  </div>
+                </div>
+
+                <div class="skills padd-15">
+                  <div class="skill-item"><h5>HTML</h5><div class="progress"><div class="progress-in" style="width:90%"></div><div class="skill-percent">90%</div></div></div>
+                  <div class="skill-item"><h5>CSS</h5><div class="progress"><div class="progress-in" style="width:85%"></div><div class="skill-percent">85%</div></div></div>
+                  <div class="skill-item"><h5>JavaScript</h5><div class="progress"><div class="progress-in" style="width:75%"></div><div class="skill-percent">75%</div></div></div>
+                  <div class="skill-item"><h5>PHP</h5><div class="progress"><div class="progress-in" style="width:65%"></div><div class="skill-percent">65%</div></div></div>
+                  <div class="skill-item"><h5>Bootstrap / Tailwind</h5><div class="progress"><div class="progress-in" style="width:80%"></div><div class="skill-percent">80%</div></div></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="education padd-15">
+                  <h3 class="title">Education</h3>
+                  <div class="timeline-box">
+                    <div class="timeline">
+                      <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 – Present</h3>
+                        <h4 class="timeline-title">BSc Computer Science</h4>
+                        <p class="timeline-text">Wachemo University, Ethiopia</p>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2019 – 2021</h3>
+                        <h4 class="timeline-title">High School</h4>
+                        <p class="timeline-text">Dinkula Preparatory School</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="experience padd-15">
+                  <h3 class="title">Experience</h3>
+                  <div class="timeline-box">
+                    <div class="timeline">
+                      <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 – Present</h3>
+                        <h4 class="timeline-title">Freelance Web Developer</h4>
+                        <p class="timeline-text">Building responsive websites and web applications for local clients.</p>
+                      </div>
+                      <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2024</h3>
+                        <h4 class="timeline-title">Web Design Intern</h4>
+                        <p class="timeline-text">Designed and developed landing pages and small business sites.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="service section" id="services">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15"><h2>My Services</h2></div>
+          </div>
+          <div class="row">
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-laptop-code"></i></div>
+                <h4>Web Development</h4>
+                <p>Clean, modern, and responsive websites using latest technologies.</p>
+              </div>
+            </div>
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-palette"></i></div>
+                <h4>UI/UX Design</h4>
+                <p>Beautiful and user-friendly interfaces that engage visitors.</p>
+              </div>
+            </div>
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-mobile-alt"></i></div>
+                <h4>Responsive Design</h4>
+                <p>Perfect look on all devices – mobile, tablet, desktop.</p>
+              </div>
+            </div>
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-search-dollar"></i></div>
+                <h4>SEO Friendly</h4>
+                <p>Optimized code to help your site rank higher.</p>
+              </div>
+            </div>
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-bug"></i></div>
+                <h4>Bug Fixing</h4>
+                <p>Fixing errors and improving performance of existing sites.</p>
+              </div>
+            </div>
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon"><i class="fa fa-rocket"></i></div>
+                <h4>Fast Delivery</h4>
+                <p>High-quality work delivered on time, every time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section class="portfolio section" id="portfolio">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15"><h2>Portfolio</h2></div>
+          </div>
+          <div class="row">
+            <div class="portfolio-heading padd-15"><h2>My Recent Works</h2></div>
+          </div>
+          <div class="row">
+            <!-- Repeat this block for each project -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-inner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/project1.jpg" alt="Project">
+                </div>
+              </div>
+            </div>
+            <!-- You can add more projects here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15"><h2>Contact Me</h2></div>
+          </div>
+          <h3 class="contact-title padd-15">Have a Project in Mind?</h3>
+          <h4 class="contact-sub-title padd-15">I'm Available for Freelance Work</h4>
+
+          <div class="row">
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <h4>Call Me</h4>
+              <p>+251 994 296 025</p>
+            </div>
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <h4>Email</h4>
+              <p>abelyesfa5@gmail.com</p>
+            </div>
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-globe"></i></div>
+              <h4>Follow Me</h4>
+              <p>LinkedIn / GitHub / Telegram</p>
+            </div>
+          </div>
+
+          <h3 class="contact-title padd-15">Send Me a Message</h3>
+          <div class="row">
+            <div class="contact-form padd-15">
+              <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <input type="text" class="form-control" placeholder="Your Name">
+                </div>
+                <div class="form-item col-6 padd-15">
+                  <input type="email" class="form-control" placeholder="Your Email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <input type="text" class="form-control" placeholder="Subject">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <textarea class="form-control" placeholder="Your Message" rows="5"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="padd-15">
+                  <button type="submit" class="btn">Send Message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
 </html>
