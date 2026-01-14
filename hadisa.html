@@ -1,0 +1,153 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadiya Zone Prosperity</title>
+    <style>
+        /* Basic CSS for styling the website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        /* Responsive design */
+        @media screen and (max-width: 600px) {
+            nav a {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Hadiya Zone Prosperity</h1>
+        <p>Exploring the growth, culture, and opportunities in Hadiya Zone, Ethiopia</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#economy">Economy</a>
+        <a href="#culture">Culture</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Home</h2>
+            <p>Hadiya Zone is a vibrant region in the Central Ethiopia Regional State, known for its rich history, agricultural productivity, and community-driven development. This website highlights the prosperity and potential of Hadiya Zone.</p>
+        </section>
+
+        <section id="about">
+            <h2>About Hadiya Zone</h2>
+            <p>Hadiya Zone is home to the Hadiya people, with a population focused on sustainable development. The zone features diverse landscapes, from fertile farmlands to cultural heritage sites.</p>
+            <a href="Hadiya Zone Administration website"></a>
+            <ul>
+                <li>Capital: Hosanna</li>
+                <li>Key Features: Agriculture, Education, Tourism</li>
+                <li>Population: Over 1.5 million</li>
+            </ul>
+        </section>
+
+        <section id="economy">
+            <h2>Economic Prosperity</h2>
+            <p>The economy of Hadiya Zone is driven by agriculture, including coffee, grains, and livestock. Recent initiatives in infrastructure and education are boosting prosperity.</p>
+            <p>Key sectors:</p>
+            <ol>
+                <li>Agriculture and Farming</li>
+                <li>Small-Scale Industries</li>
+                <li>Tourism and Hospitality</li>
+            </ol>
+        </section>
+
+        <section id="culture">
+            <h2>Cultural Heritage</h2>
+            <p>Hadiya culture is rich with traditions, music, and festivals that promote unity and prosperity. The zone celebrates events like the Hadiya New Year and traditional dances.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>For more information, reach out via email: info@hadiyaprosperity.et</p>
+            <form id="contactForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message"></textarea><br>
+                <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hadiya Zone Prosperity. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Basic JavaScript for form submission alert
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert('Thank you, ' + name + '! Your message has been submitted.');
+                // In a real website, this would send data to a server
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+
+</body>
+</html>
