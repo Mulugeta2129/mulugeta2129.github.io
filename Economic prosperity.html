@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Economic Prosperity – Hadiya Zone</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #4caf50;
+      --dark: #1b5e20;
+      --light: #f8fff8;
+      --accent: #fbc02d;
+      --gray: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header.hero {
+      background: linear-gradient(rgba(27, 94, 32, 0.78), rgba(27, 94, 32, 0.88)),
+                  url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 90px;
+    }
+
+    header.hero h1 {
+      font-size: 3.4rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+    }
+
+    header.hero p {
+      font-size: 1.35rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: 2.6rem;
+      margin: 80px 0 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 110px;
+      height: 5px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .intro-text {
+      font-size: 1.22rem;
+      max-width: 860px;
+      margin: 0 auto 60px;
+      text-align: center;
+      color: #444;
+    }
+
+    .economy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      margin-bottom: 90px;
+    }
+
+    .economy-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+    }
+
+    .economy-card:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 22px 50px rgba(46,125,50,0.24);
+    }
+
+    .economy-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .economy-card:hover img {
+      transform: scale(1.09);
+    }
+
+    .card-content {
+      padding: 30px;
+    }
+
+    .card-content h3 {
+      color: var(--primary);
+      font-size: 1.65rem;
+      margin-bottom: 16px;
+    }
+
+    .card-content h4 {
+      color: var(--accent);
+      font-size: 1.18rem;
+      margin: 20px 0 12px;
+    }
+
+    .stats {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .stats strong {
+      color: var(--dark);
+      font-size: 1.4rem;
+    }
+
+    .highlight-box {
+      background: #fffde7;
+      border-left: 6px solid var(--accent);
+      padding: 24px;
+      margin: 50px 0;
+      border-radius: 0 12px 12px 0;
+      font-size: 1.15rem;
+      color: #444;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+      header.hero h1 { font-size: 2.6rem; }
+      header.hero { padding: 100px 15px 70px; }
+      .section-title { font-size: 2.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Economic Prosperity in Hadiya Zone</h1>
+  <p>From fertile farmlands to growing urban centers – building a strong, sustainable economy for the future</p>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">Main Pillars of Economic Growth</h2>
+
+  <p class="intro-text">
+    Hadiya Zone has one of the strongest agricultural bases in Central Ethiopia, complemented by emerging trade, small industries, education services, and infrastructure development.
+  </p>
+
+  <div class="economy-grid">
+
+    <div class="economy-card">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Enset farming in Hadiya">
+           <img src="https://hadiyajourney.com/wp-content/uploads/2017/05/Leemo-Weeding-d.-Young-corn-in-d.-Rainy-season-DT-1.02.09.06-0151-bildarchiv_283.png" alt="">
+           <img src="https://3.imimg.com/data3/BQ/GU/MY-8929110/agriculture-250x250.jpg" alt="">
+      <div class="card-content">
+        <h3>Agriculture & Food Security</h3>
+        <h4>Major Crops</h4>
+        <ul>
+          <li>Enset (false banana) – staple food and cash crop</li>
+          <li>Barley, wheat, teff, maize</li>
+          <li>Highland coffee (quality Arabica varieties)</li>
+          <li>Fruits & vegetables (potato, cabbage, carrot, avocado)</li>
+          <li>Pulses (beans, peas)</li>
+        </ul>
+        <div class="stats">
+          <strong>Enset:</strong> backbone of food security for >70% of households
+        </div>
+      </div>
+    </div>
+
+    <div class="economy-card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.x5LnUokeDF8hqoawOm_xoQHaEO?rs=1&pid=ImgDetMain&o=7&rm=3 " 
+           alt="Livestock in Ethiopia">
+           <img src="https://tse1.mm.bing.net/th/id/OIP.SUzXwqxaKUmkezhacdv9uwHaFj?pid=ImgDet&w=178&h=133&c=7&dpr=1.5&o=7&rm=3" alt="">
+      <div class="card-content">
+        <h3>Livestock & Dairy</h3>
+        <p>Important source of income, nutrition and draught power.</p>
+        <h4>Key Livestock Types</h4>
+        <ul>
+          <li>Cattle (local breeds + improved crosses)</li>
+          <li>Sheep & goats</li>
+          <li>Poultry (growing commercial layer & broiler production)</li>
+          <li>Beekeeping (modern & traditional hives)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="economy-card">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Hosanna market">
+      <div class="card-content">
+        <h3>Trade & Commerce</h3>
+        <p>Hosanna is an important regional trade hub connecting southern Ethiopia with the central markets.</p>
+        <ul>
+          <li>Weekly markets in Hosanna and major towns</li>
+          <li>Grain, livestock, enset products, coffee trading</li>
+          <li>Retail shops, small wholesalers, hotels & restaurants</li>
+          <li>Growing transport & logistics services</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="economy-card">
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Small industry Ethiopia">
+      <div class="card-content">
+        <h3>Emerging Industries & Services</h3>
+        <ul>
+          <li>Flour mills, oil pressing, coffee processing</li>
+          <li>Wood & metal workshops</li>
+          <li>Construction materials production</li>
+          <li>Education services (private colleges, schools)</li>
+          <li>Tourism potential (cultural & natural attractions)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight-box">
+    <strong>Strategic Advantages:</strong><br><br>
+    Fertile highland soils • Good rainfall distribution • Proximity to major markets (Addis Ababa ~230 km) • Young and growing population • Improving road infrastructure • Strong cooperative movement • Government focus on agricultural commercialization & value addition
+  </div>
+
+  <h2 class="section-title" style="margin-top: 100px;">Development Priorities</h2>
+
+  <ul style="max-width: 880px; margin: 0 auto 80px; padding-left: 35px; font-size: 1.15rem; list-style: none;">
+    <li style="margin-bottom: 18px;">✓ Commercialization & value addition of enset, coffee & livestock products</li>
+    <li style="margin-bottom: 18px;">✓ Irrigation development & modern farming techniques</li>
+    <li style="margin-bottom: 18px;">✓ Strengthening cooperatives & farmer organizations</li>
+    <li style="margin-bottom: 18px;">✓ Improving rural roads & market access</li>
+    <li style="margin-bottom: 18px;">✓ Promoting off-farm employment & small industries</li>
+    <li style="margin-bottom: 18px;">✓ Attracting investment in agro-processing & tourism</li>
+    <li style="margin-bottom: 18px;">✓ Enhancing education & skill development for youth</li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>© 2026 Hadiya Zone Prosperity – Building Sustainable Economic Growth</p>
+  <p style="margin-top: 14px; opacity: 0.9;">
+    Central Ethiopia Regional State • Hadiya Zone Administration
+  </p>
+</footer>
+
+</body>
+</html>
