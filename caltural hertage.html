@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cultural Heritage – Hadiya Zone</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #4caf50;
+      --dark: #1b5e20;
+      --light: #f8fff8;
+      --gray: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(rgba(27, 94, 32, 0.75), rgba(27, 94, 32, 0.85)),
+                  url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--dark);
+      font-size: 2.5rem;
+      margin: 70px 0 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 100px;
+      height: 5px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .culture-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.35s ease;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 45px rgba(46,125,50,0.22);
+    }
+
+    .culture-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .culture-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card-content {
+      padding: 28px;
+    }
+
+    .card-content h3 {
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-size: 1.55rem;
+    }
+
+    .highlight {
+      background: #e8f5e9;
+      border-left: 5px solid var(--primary);
+      padding: 20px;
+      margin: 40px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #444;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      header { padding: 90px 15px 60px; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cultural Heritage of Hadiya Zone</h1>
+  <p>Rich traditions, vibrant music, colorful attire, and deep-rooted values of the Hadiya people</p>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">Key Elements of Hadiya Culture</h2>
+
+  <div class="culture-grid">
+
+    <div class="culture-card">
+        <a href="https://youtu.be/CBgBVyfPljQ">https://youtu.be/CBgBVyfPljQ</a>
+           alt="Hadiya traditional dance">
+      <div class="card-content">
+        <h3>Traditional Dances</h3>
+        <p>Hadiya people are renowned for energetic group dances such as <strong>Boyaa Seleme</strong> and other rhythmic performances performed during weddings, festivals, and important ceremonies. These dances express joy, unity, strength, and community solidarity.</p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Hadiya traditional clothing">
+      <div class="card-content">
+        <h3>Traditional Clothing & Adornment</h3>
+        <p>Women wear beautifully embroidered dresses with bright colors and intricate patterns, often complemented by beadwork, necklaces, and headscarves. Men traditionally wear <em>gabi</em> or embroidered shawls and carry ceremonial sticks during important events.</p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src=" https://tse1.mm.bing.net/th/id/OIP.S6RP11TucgOG_65t--7CFQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" 
+           alt="Hadiya festival celebration">
+      <div class="card-content">
+        <h3>Yahode – Hadiya New Year</h3>
+        <p>The most important cultural festival, <strong>Yahode</strong> (or Yahoode), marks renewal, peace, reconciliation, and thanksgiving. It features feasting, traditional foods, music, dances, and family gatherings.</p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Hadiya elders storytelling">
+      <div class="card-content">
+        <h3>Oral Tradition & Storytelling</h3>
+        <p>Elders play a central role in preserving history through storytelling, proverbs, riddles, and folk songs. These oral traditions transmit values, genealogy, moral lessons, and historical events across generations.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight">
+    <p>“The Hadiya people value hospitality, respect for elders, strong family ties, hard work, and peaceful coexistence — core principles deeply embedded in daily life and cultural practices.”</p>
+  </div>
+
+  <h2 class="section-title">Musical Instruments & Arts</h2>
+
+  <ul style="max-width: 800px; margin: 0 auto 60px; padding-left: 30px; font-size: 1.1rem;">
+    <li><strong>Drums (Dibbe / Dibe)</strong> — different sizes used in ceremonies and dances</li>
+    <li><strong>Krar</strong> and other string instruments in some performances</li>
+    <li><strong>Washint</strong> (bamboo flute) — used in pastoral and ceremonial contexts</li>
+    <li>Handclapping, ululation, and group singing are essential elements</li>
+    <li>Pottery, weaving, and basketry remain important traditional crafts</li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>© 2026 Hadiya Zone Prosperity – Celebrating and Preserving Hadiya Cultural Heritage</p>
+  <p style="margin-top: 12px; opacity: 0.9;">
+    Central Ethiopia Regional State • Proudly Hadiya
+  </p>
+</footer>
+
+</body>
+</html>
